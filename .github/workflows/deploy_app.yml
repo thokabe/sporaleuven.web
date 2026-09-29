@@ -35,6 +35,7 @@ jobs:
           name: site
           path: |
             dist
+            api
             package.json
             package-lock.json
 
@@ -66,6 +67,6 @@ jobs:
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "/dist" # App source code path
-          api_location: "" # Api source code path - optional
+          api_location: "api" # Api source code path, built by Oryx
           output_location: "dist" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######

@@ -23,6 +23,7 @@ jobs:
       # release event has no `inputs`, so fall back to the release tag
       RELEASE_TAG: ${{ inputs.tag || github.event.release.tag_name }}
       RELEASE_ASSET: spora-leuven-site.zip
+      RELEASE_API_ASSET: spora-leuven-api.zip
     steps:
       - name: Verify GitHub CLI
         run: gh --version
@@ -30,12 +31,13 @@ jobs:
       - name: Download release artifact
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release download "${RELEASE_TAG}" --repo "${GITHUB_REPOSITORY}" --pattern "${RELEASE_ASSET}"
+        run: gh release download "${RELEASE_TAG}" --repo "${GITHUB_REPOSITORY}" --pattern "${RELEASE_ASSET}" --pattern "${RELEASE_API_ASSET}"
 
-      - name: Extract release artifact
+      - name: Extract release artifacts
         run: |
-          mkdir -p site
+          mkdir -p site api
           unzip -o "${RELEASE_ASSET}" -d site
+          unzip -o "${RELEASE_API_ASSET}" -d api
 
       - name: Login to Azure
         uses: azure/login@v2
@@ -53,7 +55,8 @@ jobs:
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "site" # App source code path
-          api_location: "" # Api source code path - optional
+          api_location: "api" # Prebuilt API output
           output_location: "" # Built app content directory - optional
           skip_app_build: true
+          skip_api_build: true
           ###### End of Repository/Build Configurations ######

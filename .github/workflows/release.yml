@@ -22,6 +22,7 @@ jobs:
     env:
       RELEASE_TAG: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
       RELEASE_ASSET: spora-leuven-site.zip
+      RELEASE_API_ASSET: spora-leuven-api.zip
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -42,19 +43,31 @@ jobs:
           PUBLIC_RELEASE_VERSION: ${{ env.RELEASE_TAG }}
         run: npm run build
 
-      - name: Package build artifact
-        run: (cd dist && zip -r "../${RELEASE_ASSET}" .)
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Publish API
+        run: dotnet publish api -c Release -o api-publish
+
+      - name: Package build artifacts
+        run: |
+          (cd dist && zip -r "../${RELEASE_ASSET}" .)
+          (cd api-publish && zip -r "../${RELEASE_API_ASSET}" .)
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
           name: spora-leuven-${{ env.RELEASE_TAG }}
-          path: ${{ env.RELEASE_ASSET }}
+          path: |
+            ${{ env.RELEASE_ASSET }}
+            ${{ env.RELEASE_API_ASSET }}
 
       - name: Create GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "${RELEASE_TAG}" "${RELEASE_ASSET}" --generate-notes --verify-tag
+        run: gh release create "${RELEASE_TAG}" "${RELEASE_ASSET}" "${RELEASE_API_ASSET}" --generate-notes --verify-tag
 
   deploy:
     needs: release
