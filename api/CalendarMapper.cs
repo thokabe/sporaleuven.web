@@ -1,18 +1,19 @@
 using System.Globalization;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace Api;
 
 public sealed record CalendarWeek(
     [property: JsonPropertyName("week")] int Week,
-    [property: JsonPropertyName("wedstrijden")] List<string> Wedstrijden);
+    [property: JsonPropertyName("wedstrijden")] List<JsonElement> Wedstrijden);
 
 public static class CalendarMapper
 {
     public static List<CalendarGameDto> ToDtos(IEnumerable<CalendarWeek> weeks) =>
         weeks.SelectMany(w => w.Wedstrijden).Select(ToDto).ToList();
 
-    public static CalendarGameDto ToDto(string raw)
+    public static CalendarGameDto ToDto(JsonElement raw)
     {
         var fields = Parse(raw);
 
@@ -35,8 +36,16 @@ public static class CalendarMapper
             scoreAway);
     }
 
-    // Games are stored as PowerShell hashtable strings: "@{key=value; key=value}".
-    private static Dictionary<string, string> Parse(string raw)
+    private static Dictionary<string, string> Parse(JsonElement raw) => raw.ValueKind switch
+    {
+        JsonValueKind.String => ParsePowerShellHashtable(raw.GetString() ?? string.Empty),
+        JsonValueKind.Object => raw.EnumerateObject().ToDictionary(
+            property => property.Name,
+            property => property.Value.ToString()),
+        _ => throw new JsonException($"Unsupported calendar game value: {raw.ValueKind}.")
+    };
+
+    private static Dictionary<string, string> ParsePowerShellHashtable(string raw)
     {
         var fields = new Dictionary<string, string>();
         foreach (var pair in raw.TrimStart('@', '{').TrimEnd('}').Split("; "))
