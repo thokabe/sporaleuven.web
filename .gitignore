@@ -3,6 +3,12 @@ dist/
 # generated types
 .astro/
 
+# api build output and local settings
+api/bin/
+api/obj/
+api/local.settings.json
+api-publish/
+
 # dependencies
 node_modules/
 
