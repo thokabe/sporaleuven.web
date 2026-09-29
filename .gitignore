@@ -6,6 +6,8 @@ dist/
 # api build output and local settings
 api/bin/
 api/obj/
+api.tests/bin/
+api.tests/obj/
 api/local.settings.json
 api-publish/
 
