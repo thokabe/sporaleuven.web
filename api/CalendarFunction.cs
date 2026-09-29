@@ -7,24 +7,51 @@ namespace Api;
 
 public class CalendarFunction
 {
-    private static readonly string CalendarPath =
-        Path.Combine(AppContext.BaseDirectory, "data", "calendar_H2_2627.json");
-
     [Function("calendar")]
     public async Task<HttpResponseData> Run(
-        [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "calendar")] HttpRequestData req)
+        [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "calendar/{season}/{competition}")] HttpRequestData req,
+        string season,
+        string competition)
     {
+        if (!TryGetCalendarPath(season, competition, out var calendarPath))
+        {
+            return await CreateErrorResponseAsync(
+                req,
+                HttpStatusCode.BadRequest,
+                "Season must contain four digits and competition must be an alphanumeric code.");
+        }
+
+        if (!File.Exists(calendarPath))
+        {
+            return await CreateErrorResponseAsync(req, HttpStatusCode.NotFound, "Calendar not found.");
+        }
+
         var response = req.CreateResponse(HttpStatusCode.OK);
-        await response.WriteAsJsonAsync(await LoadGamesAsync());
+        await response.WriteAsJsonAsync(await LoadGamesAsync(calendarPath));
         return response;
     }
 
     [Function("calendarByTeam")]
     public async Task<HttpResponseData> RunByTeam(
-        [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "calendar/{teamName}")] HttpRequestData req,
+        [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "calendar/{season}/{competition}/{teamName}")] HttpRequestData req,
+        string season,
+        string competition,
         string teamName)
     {
-        var games = (await LoadGamesAsync())
+        if (!TryGetCalendarPath(season, competition, out var calendarPath))
+        {
+            return await CreateErrorResponseAsync(
+                req,
+                HttpStatusCode.BadRequest,
+                "Season must contain four digits and competition must be an alphanumeric code.");
+        }
+
+        if (!File.Exists(calendarPath))
+        {
+            return await CreateErrorResponseAsync(req, HttpStatusCode.NotFound, "Calendar not found.");
+        }
+
+        var games = (await LoadGamesAsync(calendarPath))
             .Where(g => g.TeamHome.Contains(teamName, StringComparison.OrdinalIgnoreCase)
                      || g.TeamAway.Contains(teamName, StringComparison.OrdinalIgnoreCase))
             .ToList();
@@ -34,9 +61,31 @@ public class CalendarFunction
         return response;
     }
 
-    private static async Task<List<CalendarGameDto>> LoadGamesAsync()
+    private static bool TryGetCalendarPath(string season, string competition, out string calendarPath)
     {
-        await using var stream = File.OpenRead(CalendarPath);
+        var isValidSeason = season.Length == 4 && season.All(char.IsAsciiDigit);
+        var isValidCompetition = competition.Length > 0 && competition.All(char.IsAsciiLetterOrDigit);
+
+        calendarPath = isValidSeason && isValidCompetition
+            ? Path.Combine(AppContext.BaseDirectory, "data", "calendar", season, competition, "items.json")
+            : string.Empty;
+
+        return isValidSeason && isValidCompetition;
+    }
+
+    private static async Task<HttpResponseData> CreateErrorResponseAsync(
+        HttpRequestData request,
+        HttpStatusCode statusCode,
+        string message)
+    {
+        var response = request.CreateResponse(statusCode);
+        await response.WriteAsJsonAsync(new { error = message });
+        return response;
+    }
+
+    private static async Task<List<CalendarGameDto>> LoadGamesAsync(string calendarPath)
+    {
+        await using var stream = File.OpenRead(calendarPath);
         var weeks = await JsonSerializer.DeserializeAsync<List<CalendarWeek>>(stream) ?? [];
         return CalendarMapper.ToDtos(weeks);
     }
