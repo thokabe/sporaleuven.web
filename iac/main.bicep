@@ -1,5 +1,5 @@
-// Deploys the Azure infrastructure for the Spora Leuven website: a dedicated resource group,
-// an App Service Plan, an App Service, and a Static Web App, using Azure Verified Modules (AVM).
+// Deploys the Azure infrastructure for the Spora Leuven website: Log Analytics,
+// Application Insights, and a Static Web App, using Azure Verified Modules (AVM).
 targetScope = 'resourceGroup'
 
 @description('Default Azure region for all resources.')
@@ -10,6 +10,9 @@ param resourceGroupName string = 'rg-spora-web-prd-bec'
 
 @description('Name of the Log Analytics workspace backing Application Insights.')
 param logAnalyticsWorkspaceName string = 'log-spora-web-prd-bec'
+
+@description('Name of the Application Insights component linked to the Static Web App.')
+param applicationInsightsName string = 'appi-spora-web-prd-bec'
 
 @description('Name of the Static Web App.')
 param staticWebAppName string = 'stapp-spora-web-prd-bec'
@@ -47,6 +50,18 @@ module logAnalyticsWorkspace 'br/public:avm/res/operational-insights/workspace:0
   }
 }
 
+module applicationInsights 'br/public:avm/res/insights/component:0.8.0' = {
+  name: 'deploy-application-insights'
+  scope: resourceGroup(resourceGroupName)
+  params: {
+    name: applicationInsightsName
+    location: location
+    kind: 'web'
+    applicationType: 'web'
+    workspaceResourceId: logAnalyticsWorkspace.outputs.resourceId
+  }
+}
+
 module staticWebApp 'br/public:avm/res/web/static-site:0.9.6' = {
   name: 'deploy-static-web-app'
   scope: resourceGroup(resourceGroupName)
@@ -65,6 +80,17 @@ module staticWebApp 'br/public:avm/res/web/static-site:0.9.6' = {
 // so the diagnostic setting is declared directly against the deployed resource.
 resource staticWebAppExisting 'Microsoft.Web/staticSites@2023-12-01' existing = {
   name: staticWebAppName
+}
+
+resource staticWebAppAppSettings 'Microsoft.Web/staticSites/config@2023-12-01' = {
+  name: 'appsettings'
+  parent: staticWebAppExisting
+  properties: {
+    APPLICATIONINSIGHTS_CONNECTION_STRING: applicationInsights.outputs.connectionString
+  }
+  dependsOn: [
+    staticWebApp
+  ]
 }
 
 resource staticWebAppDiagnostics 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
@@ -90,18 +116,6 @@ resource staticWebAppDiagnostics 'Microsoft.Insights/diagnosticSettings@2021-05-
   ]
 }
 
-// module applicationInsights 'br/public:avm/res/insights/component:0.8.0' = {
-//   name: 'deploy-application-insights'
-//   scope: resourceGroup(resourceGroupName)
-//   params: {
-//     name: applicationInsightsName
-//     location: locationAlt
-//     kind: 'web'
-//     applicationType: 'web'
-//     workspaceResourceId: logAnalyticsWorkspace.outputs.resourceId
-//   }
-// }
-
 // module appService 'br/public:avm/res/web/site:0.15.1' = {
 //   name: 'deploy-app-service'
 //   scope: resourceGroup(resourceGroupName)
@@ -125,6 +139,9 @@ resource staticWebAppDiagnostics 'Microsoft.Insights/diagnosticSettings@2021-05-
 
 @description('Default hostname of the deployed Static Web App.')
 output staticWebAppHostName string = staticWebApp.outputs.defaultHostname
+
+@description('Name of the Application Insights component linked to the Static Web App.')
+output applicationInsightsName string = applicationInsights.outputs.name
 
 @description('Name of the resource group that was created.')
 output resourceGroupName string = resourceGroupName
