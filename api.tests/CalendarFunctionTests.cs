@@ -33,6 +33,24 @@ public class CalendarFunctionTests
         Assert.Contains(games, game => game.TeamHome == expectedTeam || game.TeamAway == expectedTeam);
     }
 
+    [Theory]
+    [InlineData("H2", "AARSCHOT BVS H")]
+    [InlineData("D2A", "SPORA LEUVEN DAMES")]
+    public async Task Run_ExcludesPlaceholderTeamsWithoutMatchingSubstrings(string competition, string expectedTeam)
+    {
+        var response = await new CalendarFunction().Run(CreateRequest(), "2627", "vlm", competition);
+
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        response.Body.Position = 0;
+        var games = await JsonSerializer.DeserializeAsync<List<CalendarGameDto>>(
+            response.Body,
+            new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+        Assert.NotNull(games);
+        Assert.DoesNotContain(games, game =>
+            game.TeamHome is "A" or "B" || game.TeamAway is "A" or "B");
+        Assert.Contains(games, game => game.TeamHome == expectedTeam || game.TeamAway == expectedTeam);
+    }
+
     [Fact]
     public async Task Run_RejectsUnknownLeague()
     {
@@ -104,6 +122,8 @@ public class CalendarFunctionTests
         response.Body.Position = 0;
         var teams = await JsonSerializer.DeserializeAsync<string[]>(response.Body);
         Assert.NotNull(teams);
+        Assert.DoesNotContain("A", teams);
+        Assert.DoesNotContain("B", teams);
         Assert.Equal(
             games.SelectMany(game => new[] { game.TeamHome, game.TeamAway })
                 .Distinct(StringComparer.OrdinalIgnoreCase)

@@ -9,6 +9,8 @@ namespace Api;
 
 public class CalendarFunction
 {
+    private static readonly HashSet<string> ExcludedTeamNames = new(StringComparer.OrdinalIgnoreCase) { "A", "B" };
+
     [Function("calendar")]
     [OpenApiOperation("getCalendar", "Calendar", Summary = "Get games for a competition")]
     [OpenApiParameter("season", In = ParameterLocation.Path, Required = true, Type = typeof(string), Description = "Four-digit season, e.g. 2627.")]
@@ -107,6 +109,8 @@ public class CalendarFunction
     {
         await using var stream = File.OpenRead(calendarPath);
         var weeks = await JsonSerializer.DeserializeAsync<List<CalendarWeek>>(stream) ?? [];
-        return CalendarMapper.ToDtos(weeks);
+        return CalendarMapper.ToDtos(weeks)
+            .Where(game => !ExcludedTeamNames.Contains(game.TeamHome) && !ExcludedTeamNames.Contains(game.TeamAway))
+            .ToList();
     }
 }
