@@ -126,7 +126,7 @@ const formatDatum = (date: Date) =>
     status.classList.remove('hidden');
 
     try {
-      const response = await fetch('https://sporaleuven.be/api/calendar/2627/H2');
+      const response = await fetch('/api/calendar/2627/H2');
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const games: CalendarGame[] = await response.json();
       const dateFormatter = new Intl.DateTimeFormat('nl-BE', { day: '2-digit', month: 'short', year: 'numeric' });
