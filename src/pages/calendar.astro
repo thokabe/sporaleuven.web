@@ -2,9 +2,15 @@
 import { getCollection, getEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const teams = (await getCollection('teams')).sort((a, b) => a.data.category.localeCompare(b.data.category));
+const teams = (await getCollection('teams'))
+  .filter((team) => team.id !== 'heren-1' && team.id !== 'dames-1')
+  .sort((a, b) => a.data.category.localeCompare(b.data.category));
 const games = (await getCollection('games')).sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf());
-const selectedTeamId = Astro.url.searchParams.get('team') === 'h2' || teams.some((team) => team.id === Astro.url.searchParams.get('team'))
+const competitionTabs = [
+  { id: 'h2', name: 'Heren 1', path: '/2627/vlm/H2' },
+  { id: 'd2a', name: 'Dames 1', path: '/2627/vlm/D2A' },
+];
+const selectedTeamId = competitionTabs.some((tab) => tab.id === Astro.url.searchParams.get('team')) || teams.some((team) => team.id === Astro.url.searchParams.get('team'))
   ? Astro.url.searchParams.get('team')
   : teams[0]?.id;
 
@@ -43,16 +49,18 @@ const formatDatum = (date: Date) =>
         {team.data.name}
       </button>
     ))}
-    <button
-      type="button"
-      data-tab-target="h2"
-      class:list={[
-        'tab-button cursor-pointer border-b-2 px-4 py-2 text-sm font-medium transition-colors',
-        selectedTeamId === 'h2' ? 'border-orange-600 text-orange-600' : 'border-transparent text-slate-600 hover:text-orange-600',
-      ]}
-    >
-      H2 competitie
-    </button>
+    {competitionTabs.map((competition) => (
+      <button
+        type="button"
+        data-tab-target={competition.id}
+        class:list={[
+          'tab-button cursor-pointer border-b-2 px-4 py-2 text-sm font-medium transition-colors',
+          selectedTeamId === competition.id ? 'border-orange-600 text-orange-600' : 'border-transparent text-slate-600 hover:text-orange-600',
+        ]}
+      >
+        {competition.name}
+      </button>
+    ))}
   </div>
 
   {teams.map((team) => (
@@ -85,21 +93,30 @@ const formatDatum = (date: Date) =>
       </table>
     </div>
   ))}
-  <div data-tab-panel="h2" class:list={['mt-4 overflow-x-auto rounded-lg border border-slate-200 bg-white shadow-sm', { hidden: selectedTeamId !== 'h2' }]}>
-    <p id="h2-status" role="status" class="px-4 py-3 text-sm text-slate-600">Kalender laden...</p>
-    <table id="h2-table" class="hidden w-full text-left text-sm">
-      <thead class="bg-slate-100 text-xs uppercase text-slate-500">
-        <tr>
-          <th class="px-4 py-3">Datum</th>
-          <th class="px-4 py-3">Uur</th>
-          <th class="px-4 py-3">Thuisploeg</th>
-          <th class="px-4 py-3">Bezoekers</th>
-          <th class="px-4 py-3">Uitslag</th>
-        </tr>
-      </thead>
-      <tbody id="h2-rows"></tbody>
-    </table>
-  </div>
+  {competitionTabs.map((competition) => (
+    <div data-tab-panel={competition.id} data-competition-path={competition.path} class:list={['mt-4 overflow-x-auto rounded-lg border border-slate-200 bg-white shadow-sm', { hidden: selectedTeamId !== competition.id }]}>
+      <div class="border-b border-slate-200 px-4 py-3">
+        <label for={`${competition.id}-team`} class="block text-sm font-medium text-slate-900">Ploeg</label>
+        <select id={`${competition.id}-team`} data-competition-team disabled class="mt-1 w-full max-w-sm rounded border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:border-orange-600 focus:outline-none disabled:opacity-50">
+          <option value="">Alle ploegen</option>
+        </select>
+        <p data-teams-status role="status" class="hidden mt-2 text-sm text-slate-600"></p>
+      </div>
+      <p data-calendar-status role="status" class="px-4 py-3 text-sm text-slate-600">Kalender laden...</p>
+      <table data-competition-table class="hidden w-full text-left text-sm">
+        <thead class="bg-slate-100 text-xs uppercase text-slate-500">
+          <tr>
+            <th class="px-4 py-3">Datum</th>
+            <th class="px-4 py-3">Uur</th>
+            <th class="px-4 py-3">Thuisploeg</th>
+            <th class="px-4 py-3">Bezoekers</th>
+            <th class="px-4 py-3">Uitslag</th>
+          </tr>
+        </thead>
+        <tbody data-competition-rows></tbody>
+      </table>
+    </div>
+  ))}
 </BaseLayout>
 
 <script>
@@ -113,26 +130,26 @@ const formatDatum = (date: Date) =>
 
   const buttons = document.querySelectorAll<HTMLButtonElement>('.tab-button');
   const panels = document.querySelectorAll<HTMLElement>('[data-tab-panel]');
-  const status = document.querySelector<HTMLElement>('#h2-status')!;
-  const table = document.querySelector<HTMLTableElement>('#h2-table')!;
-  const body = document.querySelector<HTMLTableSectionElement>('#h2-rows')!;
-  let h2Loaded = false;
-  let h2Loading = false;
+  const dateFormatter = new Intl.DateTimeFormat('nl-BE', { day: '2-digit', month: 'short', year: 'numeric' });
+  const competitionLoaders = new Map<string, () => void>();
 
-  const loadH2 = async () => {
-    if (h2Loaded || h2Loading) return;
-    h2Loading = true;
-    status.textContent = 'Kalender laden...';
-    status.classList.remove('hidden');
+  document.querySelectorAll<HTMLElement>('[data-competition-path]').forEach((panel) => {
+    const calendarPath = panel.dataset.competitionPath!;
+    const status = panel.querySelector<HTMLElement>('[data-calendar-status]')!;
+    const table = panel.querySelector<HTMLTableElement>('[data-competition-table]')!;
+    const body = panel.querySelector<HTMLTableSectionElement>('[data-competition-rows]')!;
+    const teamSelect = panel.querySelector<HTMLSelectElement>('[data-competition-team]')!;
+    const teamsStatus = panel.querySelector<HTMLElement>('[data-teams-status]')!;
+    let games: CalendarGame[] = [];
+    let calendarLoaded = false;
+    let calendarLoading = false;
+    let teamsLoaded = false;
+    let teamsLoading = false;
 
-    try {
-      const response = await fetch('/api/calendar/2627/vlm/H2');
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      const games: CalendarGame[] = await response.json();
-      const dateFormatter = new Intl.DateTimeFormat('nl-BE', { day: '2-digit', month: 'short', year: 'numeric' });
-
+    const renderCalendar = () => {
       body.replaceChildren();
-      for (const game of games) {
+      const filteredGames = games.filter((game) => !teamSelect.value || game.TeamHome === teamSelect.value || game.TeamAway === teamSelect.value);
+      for (const game of filteredGames) {
         const row = document.createElement('tr');
         row.className = 'border-t border-slate-100';
         const values = [
@@ -151,16 +168,63 @@ const formatDatum = (date: Date) =>
         body.append(row);
       }
 
-      h2Loaded = true;
-      table.classList.toggle('hidden', games.length === 0);
-      status.textContent = games.length === 0 ? 'Geen wedstrijden gevonden.' : '';
-      status.classList.toggle('hidden', games.length > 0);
-    } catch {
-      status.textContent = 'De kalender kon niet worden geladen. Open dit tabblad opnieuw om het nog eens te proberen.';
-    } finally {
-      h2Loading = false;
-    }
-  };
+      table.classList.toggle('hidden', filteredGames.length === 0);
+      status.textContent = filteredGames.length === 0 ? 'Geen wedstrijden gevonden.' : '';
+      status.classList.toggle('hidden', filteredGames.length > 0);
+    };
+
+    const loadCalendar = async () => {
+      if (calendarLoaded || calendarLoading) return;
+      calendarLoading = true;
+      status.textContent = 'Kalender laden...';
+      status.classList.remove('hidden');
+
+      try {
+        const response = await fetch(`/api/calendar${calendarPath}`);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        games = await response.json();
+
+        calendarLoaded = true;
+        renderCalendar();
+      } catch {
+        status.textContent = 'De kalender kon niet worden geladen. Open dit tabblad opnieuw om het nog eens te proberen.';
+      } finally {
+        calendarLoading = false;
+      }
+    };
+
+    const loadTeams = async () => {
+      if (teamsLoaded || teamsLoading) return;
+      teamsLoading = true;
+      teamsStatus.classList.add('hidden');
+
+      try {
+        const response = await fetch(`/api/teams${calendarPath}`);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const teams: string[] = await response.json();
+        teamSelect.append(...teams.map((team) => new Option(team, team)));
+        teamSelect.value = teams.find((team) => /spora/i.test(team)) ?? '';
+        teamSelect.disabled = teams.length === 0;
+        teamsLoaded = true;
+        if (calendarLoaded) renderCalendar();
+        if (teams.length === 0) {
+          teamsStatus.textContent = 'Geen ploegen gevonden.';
+          teamsStatus.classList.remove('hidden');
+        }
+      } catch {
+        teamsStatus.textContent = 'Ploegen konden niet worden geladen. Open dit tabblad opnieuw om het nog eens te proberen.';
+        teamsStatus.classList.remove('hidden');
+      } finally {
+        teamsLoading = false;
+      }
+    };
+
+    teamSelect.addEventListener('change', renderCalendar);
+    competitionLoaders.set(panel.dataset.tabPanel!, () => {
+      void loadCalendar();
+      void loadTeams();
+    });
+  });
 
   const activateTab = (target: string, updateUrl = false) => {
     const activeButton = Array.from(buttons).find((button) => button.dataset.tabTarget === target);
@@ -176,7 +240,7 @@ const formatDatum = (date: Date) =>
     panels.forEach((panel) => {
       panel.classList.toggle('hidden', panel.dataset.tabPanel !== target);
     });
-    if (target === 'h2') void loadH2();
+    competitionLoaders.get(target)?.();
 
     if (updateUrl) {
       const url = new URL(window.location.href);

@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace Api;
 
 public sealed record CalendarGameDto(
@@ -6,3 +8,5 @@ public sealed record CalendarGameDto(
     string TeamAway,
     int? ScoreHome,
     int? ScoreAway);
+
+public sealed record CalendarErrorDto([property: JsonPropertyName("error")] string Error);

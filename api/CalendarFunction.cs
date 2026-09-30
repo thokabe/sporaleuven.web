@@ -2,12 +2,21 @@ using System.Net;
 using System.Text.Json;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
+using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
+using Microsoft.OpenApi.Models;
 
 namespace Api;
 
 public class CalendarFunction
 {
     [Function("calendar")]
+    [OpenApiOperation("getCalendar", "Calendar", Summary = "Get games for a competition")]
+    [OpenApiParameter("season", In = ParameterLocation.Path, Required = true, Type = typeof(string), Description = "Four-digit season, e.g. 2627.")]
+    [OpenApiParameter("league", In = ParameterLocation.Path, Required = true, Type = typeof(string), Description = "League: vlm or vriendschap.")]
+    [OpenApiParameter("competition", In = ParameterLocation.Path, Required = true, Type = typeof(string), Description = "Alphanumeric competition code.")]
+    [OpenApiResponseWithBody(HttpStatusCode.OK, "application/json", typeof(CalendarGameDto[]), Description = "Calendar games.")]
+    [OpenApiResponseWithBody(HttpStatusCode.BadRequest, "application/json", typeof(CalendarErrorDto), Description = "Invalid route parameters.")]
+    [OpenApiResponseWithBody(HttpStatusCode.NotFound, "application/json", typeof(CalendarErrorDto), Description = "Calendar not found.")]
     public async Task<HttpResponseData> Run(
         [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "calendar/{season}/{league}/{competition}")] HttpRequestData req,
         string season,
@@ -33,6 +42,14 @@ public class CalendarFunction
     }
 
     [Function("calendarByTeam")]
+    [OpenApiOperation("getCalendarByTeam", "Calendar", Summary = "Get games involving a team")]
+    [OpenApiParameter("season", In = ParameterLocation.Path, Required = true, Type = typeof(string), Description = "Four-digit season, e.g. 2627.")]
+    [OpenApiParameter("league", In = ParameterLocation.Path, Required = true, Type = typeof(string), Description = "League: vlm or vriendschap.")]
+    [OpenApiParameter("competition", In = ParameterLocation.Path, Required = true, Type = typeof(string), Description = "Alphanumeric competition code.")]
+    [OpenApiParameter("teamName", In = ParameterLocation.Path, Required = true, Type = typeof(string), Description = "Case-insensitive substring of a home or away team name.")]
+    [OpenApiResponseWithBody(HttpStatusCode.OK, "application/json", typeof(CalendarGameDto[]), Description = "Games involving the team, or an empty array.")]
+    [OpenApiResponseWithBody(HttpStatusCode.BadRequest, "application/json", typeof(CalendarErrorDto), Description = "Invalid route parameters.")]
+    [OpenApiResponseWithBody(HttpStatusCode.NotFound, "application/json", typeof(CalendarErrorDto), Description = "Calendar not found.")]
     public async Task<HttpResponseData> RunByTeam(
         [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "calendar/{season}/{league}/{competition}/{teamName}")] HttpRequestData req,
         string season,
@@ -82,7 +99,7 @@ public class CalendarFunction
         string message)
     {
         var response = request.CreateResponse(statusCode);
-        await response.WriteAsJsonAsync(new { error = message });
+        await response.WriteAsJsonAsync(new CalendarErrorDto(message));
         return response;
     }
 

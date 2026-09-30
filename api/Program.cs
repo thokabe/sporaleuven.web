@@ -1,6 +1,8 @@
-using Microsoft.Azure.Functions.Worker.Builder;
+using Microsoft.Azure.Functions.Worker.Extensions.OpenApi.Extensions;
 using Microsoft.Extensions.Hosting;
 
-var builder = FunctionsApplication.CreateBuilder(args);
-
-builder.Build().Run();
+new HostBuilder()
+	.ConfigureFunctionsWorkerDefaults()
+	.ConfigureOpenApi()
+	.Build()
+	.Run();
