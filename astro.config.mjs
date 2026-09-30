@@ -9,7 +9,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
     server: {
       proxy: {
-        '/api': 'https://sporaleuven.be'
+        '/api': process.env.API_PROXY_TARGET || 'https://sporaleuven.be'
       }
     }
   }

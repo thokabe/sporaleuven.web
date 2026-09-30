@@ -9,16 +9,17 @@ public class CalendarFunction
 {
     [Function("calendar")]
     public async Task<HttpResponseData> Run(
-        [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "calendar/{season}/{competition}")] HttpRequestData req,
+        [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "calendar/{season}/{league}/{competition}")] HttpRequestData req,
         string season,
+        string league,
         string competition)
     {
-        if (!TryGetCalendarPath(season, competition, out var calendarPath))
+        if (!TryGetCalendarPath(season, league, competition, out var calendarPath))
         {
             return await CreateErrorResponseAsync(
                 req,
                 HttpStatusCode.BadRequest,
-                "Season must contain four digits and competition must be an alphanumeric code.");
+                "Season must contain four digits, league must be vlm or vriendschap, and competition must be an alphanumeric code.");
         }
 
         if (!File.Exists(calendarPath))
@@ -33,17 +34,18 @@ public class CalendarFunction
 
     [Function("calendarByTeam")]
     public async Task<HttpResponseData> RunByTeam(
-        [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "calendar/{season}/{competition}/{teamName}")] HttpRequestData req,
+        [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "calendar/{season}/{league}/{competition}/{teamName}")] HttpRequestData req,
         string season,
+        string league,
         string competition,
         string teamName)
     {
-        if (!TryGetCalendarPath(season, competition, out var calendarPath))
+        if (!TryGetCalendarPath(season, league, competition, out var calendarPath))
         {
             return await CreateErrorResponseAsync(
                 req,
                 HttpStatusCode.BadRequest,
-                "Season must contain four digits and competition must be an alphanumeric code.");
+                "Season must contain four digits, league must be vlm or vriendschap, and competition must be an alphanumeric code.");
         }
 
         if (!File.Exists(calendarPath))
@@ -61,16 +63,17 @@ public class CalendarFunction
         return response;
     }
 
-    private static bool TryGetCalendarPath(string season, string competition, out string calendarPath)
+    private static bool TryGetCalendarPath(string season, string league, string competition, out string calendarPath)
     {
         var isValidSeason = season.Length == 4 && season.All(char.IsAsciiDigit);
+        var isValidLeague = league is "vlm" or "vriendschap";
         var isValidCompetition = competition.Length > 0 && competition.All(char.IsAsciiLetterOrDigit);
 
-        calendarPath = isValidSeason && isValidCompetition
-            ? Path.Combine(AppContext.BaseDirectory, "data", "calendar", season, competition, "items.json")
+        calendarPath = isValidSeason && isValidLeague && isValidCompetition
+            ? Path.Combine(AppContext.BaseDirectory, "data", "calendar", season, league, competition, "items.json")
             : string.Empty;
 
-        return isValidSeason && isValidCompetition;
+        return isValidSeason && isValidLeague && isValidCompetition;
     }
 
     private static async Task<HttpResponseData> CreateErrorResponseAsync(
