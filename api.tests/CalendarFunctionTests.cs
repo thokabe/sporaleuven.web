@@ -85,6 +85,42 @@ public class CalendarFunctionTests
         Assert.All(games, game => Assert.True(game.TeamHome.Contains("SPORA LEUVEN") || game.TeamAway.Contains("SPORA LEUVEN")));
     }
 
+    [Theory]
+    [InlineData("H2")]
+    [InlineData("D2A")]
+    public async Task RunTeams_ReturnsUniqueSortedNamesFromCalendar(string competition)
+    {
+        var function = new CalendarFunction();
+        var calendarResponse = await function.Run(CreateRequest(), "2627", "vlm", competition);
+        calendarResponse.Body.Position = 0;
+        var games = await JsonSerializer.DeserializeAsync<List<CalendarGameDto>>(
+            calendarResponse.Body,
+            new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+        Assert.NotNull(games);
+
+        var response = await new TeamsFunction().Run(CreateRequest(), "2627", "vlm", competition);
+
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        response.Body.Position = 0;
+        var teams = await JsonSerializer.DeserializeAsync<string[]>(response.Body);
+        Assert.NotNull(teams);
+        Assert.Equal(
+            games.SelectMany(game => new[] { game.TeamHome, game.TeamAway })
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .OrderBy(team => team, StringComparer.OrdinalIgnoreCase),
+            teams);
+    }
+
+    [Theory]
+    [InlineData("2627", "unknown", "H2", HttpStatusCode.BadRequest)]
+    [InlineData("2627", "vriendschap", "H2", HttpStatusCode.NotFound)]
+    public async Task RunTeams_UsesCalendarValidation(string season, string league, string competition, HttpStatusCode expectedStatus)
+    {
+        var response = await new TeamsFunction().Run(CreateRequest(), season, league, competition);
+
+        Assert.Equal(expectedStatus, response.StatusCode);
+    }
+
     private static HttpRequestData CreateRequest()
     {
         var services = new ServiceCollection();

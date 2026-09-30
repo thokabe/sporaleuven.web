@@ -63,7 +63,7 @@ public class CalendarFunction
         return response;
     }
 
-    private static bool TryGetCalendarPath(string season, string league, string competition, out string calendarPath)
+    internal static bool TryGetCalendarPath(string season, string league, string competition, out string calendarPath)
     {
         var isValidSeason = season.Length == 4 && season.All(char.IsAsciiDigit);
         var isValidLeague = league is "vlm" or "vriendschap";
@@ -76,7 +76,7 @@ public class CalendarFunction
         return isValidSeason && isValidLeague && isValidCompetition;
     }
 
-    private static async Task<HttpResponseData> CreateErrorResponseAsync(
+    internal static async Task<HttpResponseData> CreateErrorResponseAsync(
         HttpRequestData request,
         HttpStatusCode statusCode,
         string message)
@@ -86,7 +86,7 @@ public class CalendarFunction
         return response;
     }
 
-    private static async Task<List<CalendarGameDto>> LoadGamesAsync(string calendarPath)
+    internal static async Task<List<CalendarGameDto>> LoadGamesAsync(string calendarPath)
     {
         await using var stream = File.OpenRead(calendarPath);
         var weeks = await JsonSerializer.DeserializeAsync<List<CalendarWeek>>(stream) ?? [];
