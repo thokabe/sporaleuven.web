@@ -2,243 +2,1463 @@
   {
     "week": 2,
     "wedstrijden": [
-      "@{wedstrijdNummer=3; datum=17/09/2026; uur=20:30; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=SUIKERVOC 2.0 TIENEN; thuisPloegClubStamNummer=0635; bezoekersPloegClub=A; bezoekersPloegClubStamNummer=9001}",
-      "@{wedstrijdNummer=4; datum=20/09/2026; uur=10:15; zaalBeschikbaarVanafUur=10:00; thuisPloegClub=VIP ERPS KWERPS; thuisPloegClubStamNummer=0218; bezoekersPloegClub=DE SOLVELDERS 1 TIELT-W.; bezoekersPloegClubStamNummer=0675; uitslag=3-0; set1=25-13; set2=25-14; set3=25-18; puntenThuisPloeg=3; puntenBezoekersPloeg=0}",
-      "@{wedstrijdNummer=5; datum=18/09/2026; uur=20:15; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=VLIERVOC LEUVEN; thuisPloegClubStamNummer=0156; bezoekersPloegClub=GRIVOK H GRIMBERGEN; bezoekersPloegClubStamNummer=0678; uitslag=0-3; set1=20-25; set2=26-28; set3=15-25; puntenThuisPloeg=0; puntenBezoekersPloeg=3}",
-      "@{wedstrijdNummer=6; datum=14/09/2026; uur=00:00; zaalBeschikbaarVanafUur=00:00; thuisPloegClub=B; thuisPloegClubStamNummer=9002; bezoekersPloegClub=AKUUT H HERENT VC; bezoekersPloegClubStamNummer=0654}",
-      "@{wedstrijdNummer=8; datum=21/09/2026; uur=20:30; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=MOLENSTEDE VC; thuisPloegClubStamNummer=0676; bezoekersPloegClub=STERKO KORTENBERG; bezoekersPloegClubStamNummer=0693; uitslag=3-0; set1=25-23; set2=25-14; set3=25-21; puntenThuisPloeg=3; puntenBezoekersPloeg=0}",
-      "@{wedstrijdNummer=10; datum=21/09/2026; uur=00:00; zaalBeschikbaarVanafUur=00:00; thuisPloegClub=A; thuisPloegClubStamNummer=9001; bezoekersPloegClub=VIP ERPS KWERPS; bezoekersPloegClubStamNummer=0218}"
+      {
+        "wedstrijdNummer": 3,
+        "datum": "17/09/2026",
+        "uur": "20:30",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "SUIKERVOC 2.0 TIENEN",
+        "thuisPloegClubStamNummer": "0635",
+        "bezoekersPloegClub": "A",
+        "bezoekersPloegClubStamNummer": "9001"
+      },
+      {
+        "wedstrijdNummer": 4,
+        "datum": "20/09/2026",
+        "uur": "10:15",
+        "zaalBeschikbaarVanafUur": "10:00",
+        "thuisPloegClub": "VIP ERPS KWERPS",
+        "thuisPloegClubStamNummer": "0218",
+        "bezoekersPloegClub": "DE SOLVELDERS 1 TIELT-W.",
+        "bezoekersPloegClubStamNummer": "0675",
+        "uitslag": "3-0",
+        "set1": "25-13",
+        "set2": "25-14",
+        "set3": "25-18",
+        "puntenThuisPloeg": 3,
+        "puntenBezoekersPloeg": 0
+      },
+      {
+        "wedstrijdNummer": 5,
+        "datum": "18/09/2026",
+        "uur": "20:15",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "VLIERVOC LEUVEN",
+        "thuisPloegClubStamNummer": "0156",
+        "bezoekersPloegClub": "GRIVOK H GRIMBERGEN",
+        "bezoekersPloegClubStamNummer": "0678",
+        "uitslag": "0-3",
+        "set1": "20-25",
+        "set2": "26-28",
+        "set3": "15-25",
+        "puntenThuisPloeg": 0,
+        "puntenBezoekersPloeg": 3
+      },
+      {
+        "wedstrijdNummer": 6,
+        "datum": "14/09/2026",
+        "uur": "00:00",
+        "zaalBeschikbaarVanafUur": "00:00",
+        "thuisPloegClub": "B",
+        "thuisPloegClubStamNummer": "9002",
+        "bezoekersPloegClub": "AKUUT H HERENT VC",
+        "bezoekersPloegClubStamNummer": "0654"
+      },
+      {
+        "wedstrijdNummer": 8,
+        "datum": "21/09/2026",
+        "uur": "20:30",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "MOLENSTEDE VC",
+        "thuisPloegClubStamNummer": "0676",
+        "bezoekersPloegClub": "STERKO KORTENBERG",
+        "bezoekersPloegClubStamNummer": "0693",
+        "uitslag": "3-0",
+        "set1": "25-23",
+        "set2": "25-14",
+        "set3": "25-21",
+        "puntenThuisPloeg": 3,
+        "puntenBezoekersPloeg": 0
+      },
+      {
+        "wedstrijdNummer": 10,
+        "datum": "21/09/2026",
+        "uur": "00:00",
+        "zaalBeschikbaarVanafUur": "00:00",
+        "thuisPloegClub": "A",
+        "thuisPloegClubStamNummer": "9001",
+        "bezoekersPloegClub": "VIP ERPS KWERPS",
+        "bezoekersPloegClubStamNummer": "0218"
+      }
     ]
   },
   {
     "week": 3,
     "wedstrijden": [
-      "@{wedstrijdNummer=7; datum=22/09/2026; uur=21:00; zaalBeschikbaarVanafUur=20:30; thuisPloegClub=SPORA LEUVEN H I; thuisPloegClubStamNummer=0539; bezoekersPloegClub=AARSCHOT BVS H; bezoekersPloegClubStamNummer=0694; uitslag=1-3; set1=17-25; set2=20-25; set3=25-22; set4=21-25; puntenThuisPloeg=0; puntenBezoekersPloeg=3}",
-      "@{wedstrijdNummer=9; datum=22/09/2026; uur=21:15; zaalBeschikbaarVanafUur=21:00; thuisPloegClub=DE SOLVELDERS 1 TIELT-W.; thuisPloegClubStamNummer=0675; bezoekersPloegClub=SUIKERVOC 2.0 TIENEN; bezoekersPloegClubStamNummer=0635}",
-      "@{wedstrijdNummer=11; datum=27/09/2026; uur=10:15; zaalBeschikbaarVanafUur=10:00; thuisPloegClub=AKUUT H HERENT VC; thuisPloegClubStamNummer=0654; bezoekersPloegClub=VLIERVOC LEUVEN; bezoekersPloegClubStamNummer=0156; uitslag=3-1; set1=25-15; set2=25-23; set3=20-25; set4=25-13; puntenThuisPloeg=3; puntenBezoekersPloeg=0}",
-      "@{wedstrijdNummer=12; datum=23/09/2026; uur=21:00; zaalBeschikbaarVanafUur=20:30; thuisPloegClub=GRIVOK H GRIMBERGEN; thuisPloegClubStamNummer=0678; bezoekersPloegClub=B; bezoekersPloegClubStamNummer=9002}",
-      "@{wedstrijdNummer=18; datum=28/09/2026; uur=00:00; zaalBeschikbaarVanafUur=00:00; thuisPloegClub=B; thuisPloegClubStamNummer=9002; bezoekersPloegClub=SPORA LEUVEN H I; bezoekersPloegClubStamNummer=0539}",
-      "@{wedstrijdNummer=28; datum=27/09/2026; uur=10:15; zaalBeschikbaarVanafUur=10:00; thuisPloegClub=VIP ERPS KWERPS; thuisPloegClubStamNummer=0218; bezoekersPloegClub=SPORA LEUVEN H I; bezoekersPloegClubStamNummer=0539}"
+      {
+        "wedstrijdNummer": 7,
+        "datum": "22/09/2026",
+        "uur": "21:00",
+        "zaalBeschikbaarVanafUur": "20:30",
+        "thuisPloegClub": "SPORA LEUVEN H I",
+        "thuisPloegClubStamNummer": "0539",
+        "bezoekersPloegClub": "AARSCHOT BVS H",
+        "bezoekersPloegClubStamNummer": "0694",
+        "uitslag": "1-3",
+        "set1": "17-25",
+        "set2": "20-25",
+        "set3": "25-22",
+        "set4": "21-25",
+        "puntenThuisPloeg": 0,
+        "puntenBezoekersPloeg": 3
+      },
+      {
+        "wedstrijdNummer": 9,
+        "datum": "22/09/2026",
+        "uur": "21:15",
+        "zaalBeschikbaarVanafUur": "21:00",
+        "thuisPloegClub": "DE SOLVELDERS 1 TIELT-W.",
+        "thuisPloegClubStamNummer": "0675",
+        "bezoekersPloegClub": "SUIKERVOC 2.0 TIENEN",
+        "bezoekersPloegClubStamNummer": "0635"
+      },
+      {
+        "wedstrijdNummer": 11,
+        "datum": "27/09/2026",
+        "uur": "10:15",
+        "zaalBeschikbaarVanafUur": "10:00",
+        "thuisPloegClub": "AKUUT H HERENT VC",
+        "thuisPloegClubStamNummer": "0654",
+        "bezoekersPloegClub": "VLIERVOC LEUVEN",
+        "bezoekersPloegClubStamNummer": "0156",
+        "uitslag": "3-1",
+        "set1": "25-15",
+        "set2": "25-23",
+        "set3": "20-25",
+        "set4": "25-13",
+        "puntenThuisPloeg": 3,
+        "puntenBezoekersPloeg": 0
+      },
+      {
+        "wedstrijdNummer": 12,
+        "datum": "23/09/2026",
+        "uur": "21:00",
+        "zaalBeschikbaarVanafUur": "20:30",
+        "thuisPloegClub": "GRIVOK H GRIMBERGEN",
+        "thuisPloegClubStamNummer": "0678",
+        "bezoekersPloegClub": "B",
+        "bezoekersPloegClubStamNummer": "9002"
+      },
+      {
+        "wedstrijdNummer": 18,
+        "datum": "28/09/2026",
+        "uur": "00:00",
+        "zaalBeschikbaarVanafUur": "00:00",
+        "thuisPloegClub": "B",
+        "thuisPloegClubStamNummer": "9002",
+        "bezoekersPloegClub": "SPORA LEUVEN H I",
+        "bezoekersPloegClubStamNummer": "0539"
+      },
+      {
+        "wedstrijdNummer": 28,
+        "datum": "27/09/2026",
+        "uur": "10:15",
+        "zaalBeschikbaarVanafUur": "10:00",
+        "thuisPloegClub": "VIP ERPS KWERPS",
+        "thuisPloegClubStamNummer": "0218",
+        "bezoekersPloegClub": "SPORA LEUVEN H I",
+        "bezoekersPloegClubStamNummer": "0539"
+      }
     ]
   },
   {
     "week": 4,
     "wedstrijden": [
-      "@{wedstrijdNummer=13; datum=02/10/2026; uur=20:15; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=AARSCHOT BVS H; thuisPloegClubStamNummer=0694; bezoekersPloegClub=A; bezoekersPloegClubStamNummer=9001}",
-      "@{wedstrijdNummer=14; datum=02/10/2026; uur=21:00; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=STERKO KORTENBERG; thuisPloegClubStamNummer=0693; bezoekersPloegClub=DE SOLVELDERS 1 TIELT-W.; bezoekersPloegClubStamNummer=0675}",
-      "@{wedstrijdNummer=15; datum=01/10/2026; uur=20:30; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=SUIKERVOC 2.0 TIENEN; thuisPloegClubStamNummer=0635; bezoekersPloegClub=GRIVOK H GRIMBERGEN; bezoekersPloegClubStamNummer=0678}",
-      "@{wedstrijdNummer=16; datum=04/10/2026; uur=10:15; zaalBeschikbaarVanafUur=10:00; thuisPloegClub=VIP ERPS KWERPS; thuisPloegClubStamNummer=0218; bezoekersPloegClub=AKUUT H HERENT VC; bezoekersPloegClubStamNummer=0654}",
-      "@{wedstrijdNummer=17; datum=02/10/2026; uur=20:15; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=VLIERVOC LEUVEN; thuisPloegClubStamNummer=0156; bezoekersPloegClub=MOLENSTEDE VC; bezoekersPloegClubStamNummer=0676}",
-      "@{wedstrijdNummer=24; datum=05/10/2026; uur=20:30; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=MOLENSTEDE VC; thuisPloegClubStamNummer=0676; bezoekersPloegClub=B; bezoekersPloegClubStamNummer=9002}"
+      {
+        "wedstrijdNummer": 13,
+        "datum": "02/10/2026",
+        "uur": "20:15",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "AARSCHOT BVS H",
+        "thuisPloegClubStamNummer": "0694",
+        "bezoekersPloegClub": "A",
+        "bezoekersPloegClubStamNummer": "9001"
+      },
+      {
+        "wedstrijdNummer": 14,
+        "datum": "02/10/2026",
+        "uur": "21:00",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "STERKO KORTENBERG",
+        "thuisPloegClubStamNummer": "0693",
+        "bezoekersPloegClub": "DE SOLVELDERS 1 TIELT-W.",
+        "bezoekersPloegClubStamNummer": "0675"
+      },
+      {
+        "wedstrijdNummer": 15,
+        "datum": "01/10/2026",
+        "uur": "20:30",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "SUIKERVOC 2.0 TIENEN",
+        "thuisPloegClubStamNummer": "0635",
+        "bezoekersPloegClub": "GRIVOK H GRIMBERGEN",
+        "bezoekersPloegClubStamNummer": "0678"
+      },
+      {
+        "wedstrijdNummer": 16,
+        "datum": "04/10/2026",
+        "uur": "10:15",
+        "zaalBeschikbaarVanafUur": "10:00",
+        "thuisPloegClub": "VIP ERPS KWERPS",
+        "thuisPloegClubStamNummer": "0218",
+        "bezoekersPloegClub": "AKUUT H HERENT VC",
+        "bezoekersPloegClubStamNummer": "0654"
+      },
+      {
+        "wedstrijdNummer": 17,
+        "datum": "02/10/2026",
+        "uur": "20:15",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "VLIERVOC LEUVEN",
+        "thuisPloegClubStamNummer": "0156",
+        "bezoekersPloegClub": "MOLENSTEDE VC",
+        "bezoekersPloegClubStamNummer": "0676"
+      },
+      {
+        "wedstrijdNummer": 24,
+        "datum": "05/10/2026",
+        "uur": "20:30",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "MOLENSTEDE VC",
+        "thuisPloegClubStamNummer": "0676",
+        "bezoekersPloegClub": "B",
+        "bezoekersPloegClubStamNummer": "9002"
+      }
     ]
   },
   {
     "week": 5,
     "wedstrijden": [
-      "@{wedstrijdNummer=19; datum=06/10/2026; uur=21:15; zaalBeschikbaarVanafUur=21:00; thuisPloegClub=DE SOLVELDERS 1 TIELT-W.; thuisPloegClubStamNummer=0675; bezoekersPloegClub=AARSCHOT BVS H; bezoekersPloegClubStamNummer=0694}",
-      "@{wedstrijdNummer=20; datum=05/10/2026; uur=00:00; zaalBeschikbaarVanafUur=00:00; thuisPloegClub=A; thuisPloegClubStamNummer=9001; bezoekersPloegClub=STERKO KORTENBERG; bezoekersPloegClubStamNummer=0693}",
-      "@{wedstrijdNummer=21; datum=11/10/2026; uur=10:15; zaalBeschikbaarVanafUur=10:00; thuisPloegClub=AKUUT H HERENT VC; thuisPloegClubStamNummer=0654; bezoekersPloegClub=SUIKERVOC 2.0 TIENEN; bezoekersPloegClubStamNummer=0635}",
-      "@{wedstrijdNummer=22; datum=07/10/2026; uur=21:00; zaalBeschikbaarVanafUur=20:30; thuisPloegClub=GRIVOK H GRIMBERGEN; thuisPloegClubStamNummer=0678; bezoekersPloegClub=VIP ERPS KWERPS; bezoekersPloegClubStamNummer=0218}",
-      "@{wedstrijdNummer=23; datum=06/10/2026; uur=21:00; zaalBeschikbaarVanafUur=20:30; thuisPloegClub=SPORA LEUVEN H I; thuisPloegClubStamNummer=0539; bezoekersPloegClub=VLIERVOC LEUVEN; bezoekersPloegClubStamNummer=0156}",
-      "@{wedstrijdNummer=30; datum=12/10/2026; uur=00:00; zaalBeschikbaarVanafUur=00:00; thuisPloegClub=B; thuisPloegClubStamNummer=9002; bezoekersPloegClub=DE SOLVELDERS 1 TIELT-W.; bezoekersPloegClubStamNummer=0675}"
+      {
+        "wedstrijdNummer": 19,
+        "datum": "06/10/2026",
+        "uur": "21:15",
+        "zaalBeschikbaarVanafUur": "21:00",
+        "thuisPloegClub": "DE SOLVELDERS 1 TIELT-W.",
+        "thuisPloegClubStamNummer": "0675",
+        "bezoekersPloegClub": "AARSCHOT BVS H",
+        "bezoekersPloegClubStamNummer": "0694"
+      },
+      {
+        "wedstrijdNummer": 20,
+        "datum": "05/10/2026",
+        "uur": "00:00",
+        "zaalBeschikbaarVanafUur": "00:00",
+        "thuisPloegClub": "A",
+        "thuisPloegClubStamNummer": "9001",
+        "bezoekersPloegClub": "STERKO KORTENBERG",
+        "bezoekersPloegClubStamNummer": "0693"
+      },
+      {
+        "wedstrijdNummer": 21,
+        "datum": "11/10/2026",
+        "uur": "10:15",
+        "zaalBeschikbaarVanafUur": "10:00",
+        "thuisPloegClub": "AKUUT H HERENT VC",
+        "thuisPloegClubStamNummer": "0654",
+        "bezoekersPloegClub": "SUIKERVOC 2.0 TIENEN",
+        "bezoekersPloegClubStamNummer": "0635"
+      },
+      {
+        "wedstrijdNummer": 22,
+        "datum": "07/10/2026",
+        "uur": "21:00",
+        "zaalBeschikbaarVanafUur": "20:30",
+        "thuisPloegClub": "GRIVOK H GRIMBERGEN",
+        "thuisPloegClubStamNummer": "0678",
+        "bezoekersPloegClub": "VIP ERPS KWERPS",
+        "bezoekersPloegClubStamNummer": "0218"
+      },
+      {
+        "wedstrijdNummer": 23,
+        "datum": "06/10/2026",
+        "uur": "21:00",
+        "zaalBeschikbaarVanafUur": "20:30",
+        "thuisPloegClub": "SPORA LEUVEN H I",
+        "thuisPloegClubStamNummer": "0539",
+        "bezoekersPloegClub": "VLIERVOC LEUVEN",
+        "bezoekersPloegClubStamNummer": "0156"
+      },
+      {
+        "wedstrijdNummer": 30,
+        "datum": "12/10/2026",
+        "uur": "00:00",
+        "zaalBeschikbaarVanafUur": "00:00",
+        "thuisPloegClub": "B",
+        "thuisPloegClubStamNummer": "9002",
+        "bezoekersPloegClub": "DE SOLVELDERS 1 TIELT-W.",
+        "bezoekersPloegClubStamNummer": "0675"
+      }
     ]
   },
   {
     "week": 6,
     "wedstrijden": [
-      "@{wedstrijdNummer=25; datum=16/10/2026; uur=20:15; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=AARSCHOT BVS H; thuisPloegClubStamNummer=0694; bezoekersPloegClub=GRIVOK H GRIMBERGEN; bezoekersPloegClubStamNummer=0678}",
-      "@{wedstrijdNummer=27; datum=15/10/2026; uur=20:30; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=SUIKERVOC 2.0 TIENEN; thuisPloegClubStamNummer=0635; bezoekersPloegClub=MOLENSTEDE VC; bezoekersPloegClubStamNummer=0676}",
-      "@{wedstrijdNummer=29; datum=16/10/2026; uur=20:15; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=VLIERVOC LEUVEN; thuisPloegClubStamNummer=0156; bezoekersPloegClub=A; bezoekersPloegClubStamNummer=9001}",
-      "@{wedstrijdNummer=33; datum=20/10/2026; uur=21:00; zaalBeschikbaarVanafUur=20:30; thuisPloegClub=SPORA LEUVEN H I; thuisPloegClubStamNummer=0539; bezoekersPloegClub=SUIKERVOC 2.0 TIENEN; bezoekersPloegClubStamNummer=0635}",
-      "@{wedstrijdNummer=34; datum=19/10/2026; uur=20:30; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=MOLENSTEDE VC; thuisPloegClubStamNummer=0676; bezoekersPloegClub=VIP ERPS KWERPS; bezoekersPloegClubStamNummer=0218}",
-      "@{wedstrijdNummer=36; datum=19/10/2026; uur=00:00; zaalBeschikbaarVanafUur=00:00; thuisPloegClub=A; thuisPloegClubStamNummer=9001; bezoekersPloegClub=B; bezoekersPloegClubStamNummer=9002}"
+      {
+        "wedstrijdNummer": 25,
+        "datum": "16/10/2026",
+        "uur": "20:15",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "AARSCHOT BVS H",
+        "thuisPloegClubStamNummer": "0694",
+        "bezoekersPloegClub": "GRIVOK H GRIMBERGEN",
+        "bezoekersPloegClubStamNummer": "0678"
+      },
+      {
+        "wedstrijdNummer": 27,
+        "datum": "15/10/2026",
+        "uur": "20:30",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "SUIKERVOC 2.0 TIENEN",
+        "thuisPloegClubStamNummer": "0635",
+        "bezoekersPloegClub": "MOLENSTEDE VC",
+        "bezoekersPloegClubStamNummer": "0676"
+      },
+      {
+        "wedstrijdNummer": 29,
+        "datum": "16/10/2026",
+        "uur": "20:15",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "VLIERVOC LEUVEN",
+        "thuisPloegClubStamNummer": "0156",
+        "bezoekersPloegClub": "A",
+        "bezoekersPloegClubStamNummer": "9001"
+      },
+      {
+        "wedstrijdNummer": 33,
+        "datum": "20/10/2026",
+        "uur": "21:00",
+        "zaalBeschikbaarVanafUur": "20:30",
+        "thuisPloegClub": "SPORA LEUVEN H I",
+        "thuisPloegClubStamNummer": "0539",
+        "bezoekersPloegClub": "SUIKERVOC 2.0 TIENEN",
+        "bezoekersPloegClubStamNummer": "0635"
+      },
+      {
+        "wedstrijdNummer": 34,
+        "datum": "19/10/2026",
+        "uur": "20:30",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "MOLENSTEDE VC",
+        "thuisPloegClubStamNummer": "0676",
+        "bezoekersPloegClub": "VIP ERPS KWERPS",
+        "bezoekersPloegClubStamNummer": "0218"
+      },
+      {
+        "wedstrijdNummer": 36,
+        "datum": "19/10/2026",
+        "uur": "00:00",
+        "zaalBeschikbaarVanafUur": "00:00",
+        "thuisPloegClub": "A",
+        "thuisPloegClubStamNummer": "9001",
+        "bezoekersPloegClub": "B",
+        "bezoekersPloegClubStamNummer": "9002"
+      }
     ]
   },
   {
     "week": 7,
     "wedstrijden": [
-      "@{wedstrijdNummer=31; datum=25/10/2026; uur=10:15; zaalBeschikbaarVanafUur=10:00; thuisPloegClub=AKUUT H HERENT VC; thuisPloegClubStamNummer=0654; bezoekersPloegClub=AARSCHOT BVS H; bezoekersPloegClubStamNummer=0694}",
-      "@{wedstrijdNummer=32; datum=21/10/2026; uur=21:00; zaalBeschikbaarVanafUur=20:30; thuisPloegClub=GRIVOK H GRIMBERGEN; thuisPloegClubStamNummer=0678; bezoekersPloegClub=STERKO KORTENBERG; bezoekersPloegClubStamNummer=0693}",
-      "@{wedstrijdNummer=35; datum=20/10/2026; uur=21:15; zaalBeschikbaarVanafUur=21:00; thuisPloegClub=DE SOLVELDERS 1 TIELT-W.; thuisPloegClubStamNummer=0675; bezoekersPloegClub=VLIERVOC LEUVEN; bezoekersPloegClubStamNummer=0156}",
-      "@{wedstrijdNummer=40; datum=26/10/2026; uur=20:30; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=MOLENSTEDE VC; thuisPloegClubStamNummer=0676; bezoekersPloegClub=DE SOLVELDERS 1 TIELT-W.; bezoekersPloegClubStamNummer=0675}",
-      "@{wedstrijdNummer=41; datum=27/10/2026; uur=21:00; zaalBeschikbaarVanafUur=20:30; thuisPloegClub=SPORA LEUVEN H I; thuisPloegClubStamNummer=0539; bezoekersPloegClub=GRIVOK H GRIMBERGEN; bezoekersPloegClubStamNummer=0678}",
-      "@{wedstrijdNummer=42; datum=26/10/2026; uur=00:00; zaalBeschikbaarVanafUur=00:00; thuisPloegClub=A; thuisPloegClubStamNummer=9001; bezoekersPloegClub=AKUUT H HERENT VC; bezoekersPloegClubStamNummer=0654}"
+      {
+        "wedstrijdNummer": 31,
+        "datum": "25/10/2026",
+        "uur": "10:15",
+        "zaalBeschikbaarVanafUur": "10:00",
+        "thuisPloegClub": "AKUUT H HERENT VC",
+        "thuisPloegClubStamNummer": "0654",
+        "bezoekersPloegClub": "AARSCHOT BVS H",
+        "bezoekersPloegClubStamNummer": "0694"
+      },
+      {
+        "wedstrijdNummer": 32,
+        "datum": "21/10/2026",
+        "uur": "21:00",
+        "zaalBeschikbaarVanafUur": "20:30",
+        "thuisPloegClub": "GRIVOK H GRIMBERGEN",
+        "thuisPloegClubStamNummer": "0678",
+        "bezoekersPloegClub": "STERKO KORTENBERG",
+        "bezoekersPloegClubStamNummer": "0693"
+      },
+      {
+        "wedstrijdNummer": 35,
+        "datum": "20/10/2026",
+        "uur": "21:15",
+        "zaalBeschikbaarVanafUur": "21:00",
+        "thuisPloegClub": "DE SOLVELDERS 1 TIELT-W.",
+        "thuisPloegClubStamNummer": "0675",
+        "bezoekersPloegClub": "VLIERVOC LEUVEN",
+        "bezoekersPloegClubStamNummer": "0156"
+      },
+      {
+        "wedstrijdNummer": 40,
+        "datum": "26/10/2026",
+        "uur": "20:30",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "MOLENSTEDE VC",
+        "thuisPloegClubStamNummer": "0676",
+        "bezoekersPloegClub": "DE SOLVELDERS 1 TIELT-W.",
+        "bezoekersPloegClubStamNummer": "0675"
+      },
+      {
+        "wedstrijdNummer": 41,
+        "datum": "27/10/2026",
+        "uur": "21:00",
+        "zaalBeschikbaarVanafUur": "20:30",
+        "thuisPloegClub": "SPORA LEUVEN H I",
+        "thuisPloegClubStamNummer": "0539",
+        "bezoekersPloegClub": "GRIVOK H GRIMBERGEN",
+        "bezoekersPloegClubStamNummer": "0678"
+      },
+      {
+        "wedstrijdNummer": 42,
+        "datum": "26/10/2026",
+        "uur": "00:00",
+        "zaalBeschikbaarVanafUur": "00:00",
+        "thuisPloegClub": "A",
+        "thuisPloegClubStamNummer": "9001",
+        "bezoekersPloegClub": "AKUUT H HERENT VC",
+        "bezoekersPloegClubStamNummer": "0654"
+      }
     ]
   },
   {
     "week": 8,
     "wedstrijden": [
-      "@{wedstrijdNummer=1; datum=06/11/2026; uur=20:15; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=AARSCHOT BVS H; thuisPloegClubStamNummer=0694; bezoekersPloegClub=MOLENSTEDE VC; bezoekersPloegClubStamNummer=0676}",
-      "@{wedstrijdNummer=26; datum=13/11/2026; uur=21:00; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=STERKO KORTENBERG; thuisPloegClubStamNummer=0693; bezoekersPloegClub=AKUUT H HERENT VC; bezoekersPloegClubStamNummer=0654}",
-      "@{wedstrijdNummer=37; datum=30/10/2026; uur=20:15; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=AARSCHOT BVS H; thuisPloegClubStamNummer=0694; bezoekersPloegClub=VIP ERPS KWERPS; bezoekersPloegClubStamNummer=0218}",
-      "@{wedstrijdNummer=38; datum=30/10/2026; uur=21:00; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=STERKO KORTENBERG; thuisPloegClubStamNummer=0693; bezoekersPloegClub=VLIERVOC LEUVEN; bezoekersPloegClubStamNummer=0156}",
-      "@{wedstrijdNummer=39; datum=29/10/2026; uur=20:30; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=SUIKERVOC 2.0 TIENEN; thuisPloegClubStamNummer=0635; bezoekersPloegClub=B; bezoekersPloegClubStamNummer=9002}",
-      "@{wedstrijdNummer=43; datum=13/11/2026; uur=20:15; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=VLIERVOC LEUVEN; thuisPloegClubStamNummer=0156; bezoekersPloegClub=AARSCHOT BVS H; bezoekersPloegClubStamNummer=0694}"
+      {
+        "wedstrijdNummer": 1,
+        "datum": "06/11/2026",
+        "uur": "20:15",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "AARSCHOT BVS H",
+        "thuisPloegClubStamNummer": "0694",
+        "bezoekersPloegClub": "MOLENSTEDE VC",
+        "bezoekersPloegClubStamNummer": "0676"
+      },
+      {
+        "wedstrijdNummer": 26,
+        "datum": "13/11/2026",
+        "uur": "21:00",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "STERKO KORTENBERG",
+        "thuisPloegClubStamNummer": "0693",
+        "bezoekersPloegClub": "AKUUT H HERENT VC",
+        "bezoekersPloegClubStamNummer": "0654"
+      },
+      {
+        "wedstrijdNummer": 37,
+        "datum": "30/10/2026",
+        "uur": "20:15",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "AARSCHOT BVS H",
+        "thuisPloegClubStamNummer": "0694",
+        "bezoekersPloegClub": "VIP ERPS KWERPS",
+        "bezoekersPloegClubStamNummer": "0218"
+      },
+      {
+        "wedstrijdNummer": 38,
+        "datum": "30/10/2026",
+        "uur": "21:00",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "STERKO KORTENBERG",
+        "thuisPloegClubStamNummer": "0693",
+        "bezoekersPloegClub": "VLIERVOC LEUVEN",
+        "bezoekersPloegClubStamNummer": "0156"
+      },
+      {
+        "wedstrijdNummer": 39,
+        "datum": "29/10/2026",
+        "uur": "20:30",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "SUIKERVOC 2.0 TIENEN",
+        "thuisPloegClubStamNummer": "0635",
+        "bezoekersPloegClub": "B",
+        "bezoekersPloegClubStamNummer": "9002"
+      },
+      {
+        "wedstrijdNummer": 43,
+        "datum": "13/11/2026",
+        "uur": "20:15",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "VLIERVOC LEUVEN",
+        "thuisPloegClubStamNummer": "0156",
+        "bezoekersPloegClub": "AARSCHOT BVS H",
+        "bezoekersPloegClubStamNummer": "0694"
+      }
     ]
   },
   {
     "week": 9,
     "wedstrijden": [
-      "@{wedstrijdNummer=44; datum=16/11/2026; uur=00:00; zaalBeschikbaarVanafUur=00:00; thuisPloegClub=B; thuisPloegClubStamNummer=9002; bezoekersPloegClub=STERKO KORTENBERG; bezoekersPloegClubStamNummer=0693}",
-      "@{wedstrijdNummer=46; datum=18/11/2026; uur=21:00; zaalBeschikbaarVanafUur=20:30; thuisPloegClub=GRIVOK H GRIMBERGEN; thuisPloegClubStamNummer=0678; bezoekersPloegClub=MOLENSTEDE VC; bezoekersPloegClubStamNummer=0676}",
-      "@{wedstrijdNummer=47; datum=22/11/2026; uur=10:15; zaalBeschikbaarVanafUur=10:00; thuisPloegClub=AKUUT H HERENT VC; thuisPloegClubStamNummer=0654; bezoekersPloegClub=SPORA LEUVEN H I; bezoekersPloegClubStamNummer=0539}",
-      "@{wedstrijdNummer=48; datum=17/11/2026; uur=21:15; zaalBeschikbaarVanafUur=21:00; thuisPloegClub=DE SOLVELDERS 1 TIELT-W.; thuisPloegClubStamNummer=0675; bezoekersPloegClub=A; bezoekersPloegClubStamNummer=9001}",
-      "@{wedstrijdNummer=52; datum=23/11/2026; uur=20:30; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=MOLENSTEDE VC; thuisPloegClubStamNummer=0676; bezoekersPloegClub=SPORA LEUVEN H I; bezoekersPloegClubStamNummer=0539}",
-      "@{wedstrijdNummer=54; datum=23/11/2026; uur=00:00; zaalBeschikbaarVanafUur=00:00; thuisPloegClub=A; thuisPloegClubStamNummer=9001; bezoekersPloegClub=GRIVOK H GRIMBERGEN; bezoekersPloegClubStamNummer=0678}"
+      {
+        "wedstrijdNummer": 44,
+        "datum": "16/11/2026",
+        "uur": "00:00",
+        "zaalBeschikbaarVanafUur": "00:00",
+        "thuisPloegClub": "B",
+        "thuisPloegClubStamNummer": "9002",
+        "bezoekersPloegClub": "STERKO KORTENBERG",
+        "bezoekersPloegClubStamNummer": "0693"
+      },
+      {
+        "wedstrijdNummer": 46,
+        "datum": "18/11/2026",
+        "uur": "21:00",
+        "zaalBeschikbaarVanafUur": "20:30",
+        "thuisPloegClub": "GRIVOK H GRIMBERGEN",
+        "thuisPloegClubStamNummer": "0678",
+        "bezoekersPloegClub": "MOLENSTEDE VC",
+        "bezoekersPloegClubStamNummer": "0676"
+      },
+      {
+        "wedstrijdNummer": 47,
+        "datum": "22/11/2026",
+        "uur": "10:15",
+        "zaalBeschikbaarVanafUur": "10:00",
+        "thuisPloegClub": "AKUUT H HERENT VC",
+        "thuisPloegClubStamNummer": "0654",
+        "bezoekersPloegClub": "SPORA LEUVEN H I",
+        "bezoekersPloegClubStamNummer": "0539"
+      },
+      {
+        "wedstrijdNummer": 48,
+        "datum": "17/11/2026",
+        "uur": "21:15",
+        "zaalBeschikbaarVanafUur": "21:00",
+        "thuisPloegClub": "DE SOLVELDERS 1 TIELT-W.",
+        "thuisPloegClubStamNummer": "0675",
+        "bezoekersPloegClub": "A",
+        "bezoekersPloegClubStamNummer": "9001"
+      },
+      {
+        "wedstrijdNummer": 52,
+        "datum": "23/11/2026",
+        "uur": "20:30",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "MOLENSTEDE VC",
+        "thuisPloegClubStamNummer": "0676",
+        "bezoekersPloegClub": "SPORA LEUVEN H I",
+        "bezoekersPloegClubStamNummer": "0539"
+      },
+      {
+        "wedstrijdNummer": 54,
+        "datum": "23/11/2026",
+        "uur": "00:00",
+        "zaalBeschikbaarVanafUur": "00:00",
+        "thuisPloegClub": "A",
+        "thuisPloegClubStamNummer": "9001",
+        "bezoekersPloegClub": "GRIVOK H GRIMBERGEN",
+        "bezoekersPloegClubStamNummer": "0678"
+      }
     ]
   },
   {
     "week": 10,
     "wedstrijden": [
-      "@{wedstrijdNummer=49; datum=27/11/2026; uur=20:15; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=AARSCHOT BVS H; thuisPloegClubStamNummer=0694; bezoekersPloegClub=STERKO KORTENBERG; bezoekersPloegClubStamNummer=0693}",
-      "@{wedstrijdNummer=50; datum=29/11/2026; uur=10:15; zaalBeschikbaarVanafUur=10:00; thuisPloegClub=VIP ERPS KWERPS; thuisPloegClubStamNummer=0218; bezoekersPloegClub=B; bezoekersPloegClubStamNummer=9002}",
-      "@{wedstrijdNummer=51; datum=26/11/2026; uur=20:30; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=SUIKERVOC 2.0 TIENEN; thuisPloegClubStamNummer=0635; bezoekersPloegClub=VLIERVOC LEUVEN; bezoekersPloegClubStamNummer=0156}",
-      "@{wedstrijdNummer=53; datum=24/11/2026; uur=21:15; zaalBeschikbaarVanafUur=21:00; thuisPloegClub=DE SOLVELDERS 1 TIELT-W.; thuisPloegClubStamNummer=0675; bezoekersPloegClub=AKUUT H HERENT VC; bezoekersPloegClubStamNummer=0654}",
-      "@{wedstrijdNummer=55; datum=30/11/2026; uur=00:00; zaalBeschikbaarVanafUur=00:00; thuisPloegClub=B; thuisPloegClubStamNummer=9002; bezoekersPloegClub=AARSCHOT BVS H; bezoekersPloegClubStamNummer=0694}",
-      "@{wedstrijdNummer=59; datum=30/11/2026; uur=00:00; zaalBeschikbaarVanafUur=00:00; thuisPloegClub=A; thuisPloegClubStamNummer=9001; bezoekersPloegClub=SPORA LEUVEN H I; bezoekersPloegClubStamNummer=0539}"
+      {
+        "wedstrijdNummer": 49,
+        "datum": "27/11/2026",
+        "uur": "20:15",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "AARSCHOT BVS H",
+        "thuisPloegClubStamNummer": "0694",
+        "bezoekersPloegClub": "STERKO KORTENBERG",
+        "bezoekersPloegClubStamNummer": "0693"
+      },
+      {
+        "wedstrijdNummer": 50,
+        "datum": "29/11/2026",
+        "uur": "10:15",
+        "zaalBeschikbaarVanafUur": "10:00",
+        "thuisPloegClub": "VIP ERPS KWERPS",
+        "thuisPloegClubStamNummer": "0218",
+        "bezoekersPloegClub": "B",
+        "bezoekersPloegClubStamNummer": "9002"
+      },
+      {
+        "wedstrijdNummer": 51,
+        "datum": "26/11/2026",
+        "uur": "20:30",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "SUIKERVOC 2.0 TIENEN",
+        "thuisPloegClubStamNummer": "0635",
+        "bezoekersPloegClub": "VLIERVOC LEUVEN",
+        "bezoekersPloegClubStamNummer": "0156"
+      },
+      {
+        "wedstrijdNummer": 53,
+        "datum": "24/11/2026",
+        "uur": "21:15",
+        "zaalBeschikbaarVanafUur": "21:00",
+        "thuisPloegClub": "DE SOLVELDERS 1 TIELT-W.",
+        "thuisPloegClubStamNummer": "0675",
+        "bezoekersPloegClub": "AKUUT H HERENT VC",
+        "bezoekersPloegClubStamNummer": "0654"
+      },
+      {
+        "wedstrijdNummer": 55,
+        "datum": "30/11/2026",
+        "uur": "00:00",
+        "zaalBeschikbaarVanafUur": "00:00",
+        "thuisPloegClub": "B",
+        "thuisPloegClubStamNummer": "9002",
+        "bezoekersPloegClub": "AARSCHOT BVS H",
+        "bezoekersPloegClubStamNummer": "0694"
+      },
+      {
+        "wedstrijdNummer": 59,
+        "datum": "30/11/2026",
+        "uur": "00:00",
+        "zaalBeschikbaarVanafUur": "00:00",
+        "thuisPloegClub": "A",
+        "thuisPloegClubStamNummer": "9001",
+        "bezoekersPloegClub": "SPORA LEUVEN H I",
+        "bezoekersPloegClubStamNummer": "0539"
+      }
     ]
   },
   {
     "week": 11,
     "wedstrijden": [
-      "@{wedstrijdNummer=56; datum=03/12/2026; uur=20:30; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=SUIKERVOC 2.0 TIENEN; thuisPloegClubStamNummer=0635; bezoekersPloegClub=STERKO KORTENBERG; bezoekersPloegClubStamNummer=0693}",
-      "@{wedstrijdNummer=57; datum=06/12/2026; uur=10:15; zaalBeschikbaarVanafUur=10:00; thuisPloegClub=VIP ERPS KWERPS; thuisPloegClubStamNummer=0218; bezoekersPloegClub=VLIERVOC LEUVEN; bezoekersPloegClubStamNummer=0156}",
-      "@{wedstrijdNummer=58; datum=06/12/2026; uur=10:15; zaalBeschikbaarVanafUur=10:00; thuisPloegClub=AKUUT H HERENT VC; thuisPloegClubStamNummer=0654; bezoekersPloegClub=MOLENSTEDE VC; bezoekersPloegClubStamNummer=0676}",
-      "@{wedstrijdNummer=60; datum=01/12/2026; uur=21:15; zaalBeschikbaarVanafUur=21:00; thuisPloegClub=DE SOLVELDERS 1 TIELT-W.; thuisPloegClubStamNummer=0675; bezoekersPloegClub=GRIVOK H GRIMBERGEN; bezoekersPloegClubStamNummer=0678}",
-      "@{wedstrijdNummer=64; datum=07/12/2026; uur=20:30; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=MOLENSTEDE VC; thuisPloegClubStamNummer=0676; bezoekersPloegClub=A; bezoekersPloegClubStamNummer=9001}",
-      "@{wedstrijdNummer=66; datum=08/12/2026; uur=21:00; zaalBeschikbaarVanafUur=20:30; thuisPloegClub=SPORA LEUVEN H I; thuisPloegClubStamNummer=0539; bezoekersPloegClub=DE SOLVELDERS 1 TIELT-W.; bezoekersPloegClubStamNummer=0675}"
+      {
+        "wedstrijdNummer": 56,
+        "datum": "03/12/2026",
+        "uur": "20:30",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "SUIKERVOC 2.0 TIENEN",
+        "thuisPloegClubStamNummer": "0635",
+        "bezoekersPloegClub": "STERKO KORTENBERG",
+        "bezoekersPloegClubStamNummer": "0693"
+      },
+      {
+        "wedstrijdNummer": 57,
+        "datum": "06/12/2026",
+        "uur": "10:15",
+        "zaalBeschikbaarVanafUur": "10:00",
+        "thuisPloegClub": "VIP ERPS KWERPS",
+        "thuisPloegClubStamNummer": "0218",
+        "bezoekersPloegClub": "VLIERVOC LEUVEN",
+        "bezoekersPloegClubStamNummer": "0156"
+      },
+      {
+        "wedstrijdNummer": 58,
+        "datum": "06/12/2026",
+        "uur": "10:15",
+        "zaalBeschikbaarVanafUur": "10:00",
+        "thuisPloegClub": "AKUUT H HERENT VC",
+        "thuisPloegClubStamNummer": "0654",
+        "bezoekersPloegClub": "MOLENSTEDE VC",
+        "bezoekersPloegClubStamNummer": "0676"
+      },
+      {
+        "wedstrijdNummer": 60,
+        "datum": "01/12/2026",
+        "uur": "21:15",
+        "zaalBeschikbaarVanafUur": "21:00",
+        "thuisPloegClub": "DE SOLVELDERS 1 TIELT-W.",
+        "thuisPloegClubStamNummer": "0675",
+        "bezoekersPloegClub": "GRIVOK H GRIMBERGEN",
+        "bezoekersPloegClubStamNummer": "0678"
+      },
+      {
+        "wedstrijdNummer": 64,
+        "datum": "07/12/2026",
+        "uur": "20:30",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "MOLENSTEDE VC",
+        "thuisPloegClubStamNummer": "0676",
+        "bezoekersPloegClub": "A",
+        "bezoekersPloegClubStamNummer": "9001"
+      },
+      {
+        "wedstrijdNummer": 66,
+        "datum": "08/12/2026",
+        "uur": "21:00",
+        "zaalBeschikbaarVanafUur": "20:30",
+        "thuisPloegClub": "SPORA LEUVEN H I",
+        "thuisPloegClubStamNummer": "0539",
+        "bezoekersPloegClub": "DE SOLVELDERS 1 TIELT-W.",
+        "bezoekersPloegClubStamNummer": "0675"
+      }
     ]
   },
   {
     "week": 12,
     "wedstrijden": [
-      "@{wedstrijdNummer=61; datum=11/12/2026; uur=20:15; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=AARSCHOT BVS H; thuisPloegClubStamNummer=0694; bezoekersPloegClub=SUIKERVOC 2.0 TIENEN; bezoekersPloegClubStamNummer=0635}",
-      "@{wedstrijdNummer=62; datum=11/12/2026; uur=21:00; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=STERKO KORTENBERG; thuisPloegClubStamNummer=0693; bezoekersPloegClub=VIP ERPS KWERPS; bezoekersPloegClubStamNummer=0218}",
-      "@{wedstrijdNummer=63; datum=11/12/2026; uur=20:15; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=VLIERVOC LEUVEN; thuisPloegClubStamNummer=0156; bezoekersPloegClub=B; bezoekersPloegClubStamNummer=9002}",
-      "@{wedstrijdNummer=65; datum=09/12/2026; uur=21:00; zaalBeschikbaarVanafUur=20:30; thuisPloegClub=GRIVOK H GRIMBERGEN; thuisPloegClubStamNummer=0678; bezoekersPloegClub=AKUUT H HERENT VC; bezoekersPloegClubStamNummer=0654}",
-      "@{wedstrijdNummer=67; datum=14/12/2026; uur=20:30; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=MOLENSTEDE VC; thuisPloegClubStamNummer=0676; bezoekersPloegClub=AARSCHOT BVS H; bezoekersPloegClubStamNummer=0694}",
-      "@{wedstrijdNummer=69; datum=14/12/2026; uur=00:00; zaalBeschikbaarVanafUur=00:00; thuisPloegClub=A; thuisPloegClubStamNummer=9001; bezoekersPloegClub=SUIKERVOC 2.0 TIENEN; bezoekersPloegClubStamNummer=0635}"
+      {
+        "wedstrijdNummer": 61,
+        "datum": "11/12/2026",
+        "uur": "20:15",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "AARSCHOT BVS H",
+        "thuisPloegClubStamNummer": "0694",
+        "bezoekersPloegClub": "SUIKERVOC 2.0 TIENEN",
+        "bezoekersPloegClubStamNummer": "0635"
+      },
+      {
+        "wedstrijdNummer": 62,
+        "datum": "11/12/2026",
+        "uur": "21:00",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "STERKO KORTENBERG",
+        "thuisPloegClubStamNummer": "0693",
+        "bezoekersPloegClub": "VIP ERPS KWERPS",
+        "bezoekersPloegClubStamNummer": "0218"
+      },
+      {
+        "wedstrijdNummer": 63,
+        "datum": "11/12/2026",
+        "uur": "20:15",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "VLIERVOC LEUVEN",
+        "thuisPloegClubStamNummer": "0156",
+        "bezoekersPloegClub": "B",
+        "bezoekersPloegClubStamNummer": "9002"
+      },
+      {
+        "wedstrijdNummer": 65,
+        "datum": "09/12/2026",
+        "uur": "21:00",
+        "zaalBeschikbaarVanafUur": "20:30",
+        "thuisPloegClub": "GRIVOK H GRIMBERGEN",
+        "thuisPloegClubStamNummer": "0678",
+        "bezoekersPloegClub": "AKUUT H HERENT VC",
+        "bezoekersPloegClubStamNummer": "0654"
+      },
+      {
+        "wedstrijdNummer": 67,
+        "datum": "14/12/2026",
+        "uur": "20:30",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "MOLENSTEDE VC",
+        "thuisPloegClubStamNummer": "0676",
+        "bezoekersPloegClub": "AARSCHOT BVS H",
+        "bezoekersPloegClubStamNummer": "0694"
+      },
+      {
+        "wedstrijdNummer": 69,
+        "datum": "14/12/2026",
+        "uur": "00:00",
+        "zaalBeschikbaarVanafUur": "00:00",
+        "thuisPloegClub": "A",
+        "thuisPloegClubStamNummer": "9001",
+        "bezoekersPloegClub": "SUIKERVOC 2.0 TIENEN",
+        "bezoekersPloegClubStamNummer": "0635"
+      }
     ]
   },
   {
     "week": 13,
     "wedstrijden": [
-      "@{wedstrijdNummer=68; datum=15/12/2026; uur=21:00; zaalBeschikbaarVanafUur=20:30; thuisPloegClub=SPORA LEUVEN H I; thuisPloegClubStamNummer=0539; bezoekersPloegClub=STERKO KORTENBERG; bezoekersPloegClubStamNummer=0693}",
-      "@{wedstrijdNummer=70; datum=15/12/2026; uur=21:15; zaalBeschikbaarVanafUur=21:00; thuisPloegClub=DE SOLVELDERS 1 TIELT-W.; thuisPloegClubStamNummer=0675; bezoekersPloegClub=VIP ERPS KWERPS; bezoekersPloegClubStamNummer=0218}",
-      "@{wedstrijdNummer=71; datum=16/12/2026; uur=21:00; zaalBeschikbaarVanafUur=20:30; thuisPloegClub=GRIVOK H GRIMBERGEN; thuisPloegClubStamNummer=0678; bezoekersPloegClub=VLIERVOC LEUVEN; bezoekersPloegClubStamNummer=0156}",
-      "@{wedstrijdNummer=72; datum=20/12/2026; uur=10:15; zaalBeschikbaarVanafUur=10:00; thuisPloegClub=AKUUT H HERENT VC; thuisPloegClubStamNummer=0654; bezoekersPloegClub=B; bezoekersPloegClubStamNummer=9002}",
-      "@{wedstrijdNummer=85; datum=08/01/2027; uur=20:15; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=AARSCHOT BVS H; thuisPloegClubStamNummer=0694; bezoekersPloegClub=DE SOLVELDERS 1 TIELT-W.; bezoekersPloegClubStamNummer=0675}",
-      "@{wedstrijdNummer=119; datum=10/01/2027; uur=10:15; zaalBeschikbaarVanafUur=10:00; thuisPloegClub=AKUUT H HERENT VC; thuisPloegClubStamNummer=0654; bezoekersPloegClub=DE SOLVELDERS 1 TIELT-W.; bezoekersPloegClubStamNummer=0675}"
+      {
+        "wedstrijdNummer": 68,
+        "datum": "15/12/2026",
+        "uur": "21:00",
+        "zaalBeschikbaarVanafUur": "20:30",
+        "thuisPloegClub": "SPORA LEUVEN H I",
+        "thuisPloegClubStamNummer": "0539",
+        "bezoekersPloegClub": "STERKO KORTENBERG",
+        "bezoekersPloegClubStamNummer": "0693"
+      },
+      {
+        "wedstrijdNummer": 70,
+        "datum": "15/12/2026",
+        "uur": "21:15",
+        "zaalBeschikbaarVanafUur": "21:00",
+        "thuisPloegClub": "DE SOLVELDERS 1 TIELT-W.",
+        "thuisPloegClubStamNummer": "0675",
+        "bezoekersPloegClub": "VIP ERPS KWERPS",
+        "bezoekersPloegClubStamNummer": "0218"
+      },
+      {
+        "wedstrijdNummer": 71,
+        "datum": "16/12/2026",
+        "uur": "21:00",
+        "zaalBeschikbaarVanafUur": "20:30",
+        "thuisPloegClub": "GRIVOK H GRIMBERGEN",
+        "thuisPloegClubStamNummer": "0678",
+        "bezoekersPloegClub": "VLIERVOC LEUVEN",
+        "bezoekersPloegClubStamNummer": "0156"
+      },
+      {
+        "wedstrijdNummer": 72,
+        "datum": "20/12/2026",
+        "uur": "10:15",
+        "zaalBeschikbaarVanafUur": "10:00",
+        "thuisPloegClub": "AKUUT H HERENT VC",
+        "thuisPloegClubStamNummer": "0654",
+        "bezoekersPloegClub": "B",
+        "bezoekersPloegClubStamNummer": "9002"
+      },
+      {
+        "wedstrijdNummer": 85,
+        "datum": "08/01/2027",
+        "uur": "20:15",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "AARSCHOT BVS H",
+        "thuisPloegClubStamNummer": "0694",
+        "bezoekersPloegClub": "DE SOLVELDERS 1 TIELT-W.",
+        "bezoekersPloegClubStamNummer": "0675"
+      },
+      {
+        "wedstrijdNummer": 119,
+        "datum": "10/01/2027",
+        "uur": "10:15",
+        "zaalBeschikbaarVanafUur": "10:00",
+        "thuisPloegClub": "AKUUT H HERENT VC",
+        "thuisPloegClubStamNummer": "0654",
+        "bezoekersPloegClub": "DE SOLVELDERS 1 TIELT-W.",
+        "bezoekersPloegClubStamNummer": "0675"
+      }
     ]
   },
   {
     "week": 14,
     "wedstrijden": [
-      "@{wedstrijdNummer=45; datum=10/01/2027; uur=10:15; zaalBeschikbaarVanafUur=10:00; thuisPloegClub=VIP ERPS KWERPS; thuisPloegClubStamNummer=0218; bezoekersPloegClub=SUIKERVOC 2.0 TIENEN; bezoekersPloegClubStamNummer=0635}",
-      "@{wedstrijdNummer=74; datum=15/01/2027; uur=21:00; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=STERKO KORTENBERG; thuisPloegClubStamNummer=0693; bezoekersPloegClub=MOLENSTEDE VC; bezoekersPloegClubStamNummer=0676}",
-      "@{wedstrijdNummer=75; datum=14/01/2027; uur=20:30; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=SUIKERVOC 2.0 TIENEN; thuisPloegClubStamNummer=0635; bezoekersPloegClub=DE SOLVELDERS 1 TIELT-W.; bezoekersPloegClubStamNummer=0675}",
-      "@{wedstrijdNummer=76; datum=17/01/2027; uur=10:15; zaalBeschikbaarVanafUur=10:00; thuisPloegClub=VIP ERPS KWERPS; thuisPloegClubStamNummer=0218; bezoekersPloegClub=A; bezoekersPloegClubStamNummer=9001}",
-      "@{wedstrijdNummer=77; datum=15/01/2027; uur=20:15; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=VLIERVOC LEUVEN; thuisPloegClubStamNummer=0156; bezoekersPloegClub=AKUUT H HERENT VC; bezoekersPloegClubStamNummer=0654}",
-      "@{wedstrijdNummer=78; datum=11/01/2027; uur=00:00; zaalBeschikbaarVanafUur=00:00; thuisPloegClub=B; thuisPloegClubStamNummer=9002; bezoekersPloegClub=GRIVOK H GRIMBERGEN; bezoekersPloegClubStamNummer=0678}"
+      {
+        "wedstrijdNummer": 45,
+        "datum": "10/01/2027",
+        "uur": "10:15",
+        "zaalBeschikbaarVanafUur": "10:00",
+        "thuisPloegClub": "VIP ERPS KWERPS",
+        "thuisPloegClubStamNummer": "0218",
+        "bezoekersPloegClub": "SUIKERVOC 2.0 TIENEN",
+        "bezoekersPloegClubStamNummer": "0635"
+      },
+      {
+        "wedstrijdNummer": 74,
+        "datum": "15/01/2027",
+        "uur": "21:00",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "STERKO KORTENBERG",
+        "thuisPloegClubStamNummer": "0693",
+        "bezoekersPloegClub": "MOLENSTEDE VC",
+        "bezoekersPloegClubStamNummer": "0676"
+      },
+      {
+        "wedstrijdNummer": 75,
+        "datum": "14/01/2027",
+        "uur": "20:30",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "SUIKERVOC 2.0 TIENEN",
+        "thuisPloegClubStamNummer": "0635",
+        "bezoekersPloegClub": "DE SOLVELDERS 1 TIELT-W.",
+        "bezoekersPloegClubStamNummer": "0675"
+      },
+      {
+        "wedstrijdNummer": 76,
+        "datum": "17/01/2027",
+        "uur": "10:15",
+        "zaalBeschikbaarVanafUur": "10:00",
+        "thuisPloegClub": "VIP ERPS KWERPS",
+        "thuisPloegClubStamNummer": "0218",
+        "bezoekersPloegClub": "A",
+        "bezoekersPloegClubStamNummer": "9001"
+      },
+      {
+        "wedstrijdNummer": 77,
+        "datum": "15/01/2027",
+        "uur": "20:15",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "VLIERVOC LEUVEN",
+        "thuisPloegClubStamNummer": "0156",
+        "bezoekersPloegClub": "AKUUT H HERENT VC",
+        "bezoekersPloegClubStamNummer": "0654"
+      },
+      {
+        "wedstrijdNummer": 78,
+        "datum": "11/01/2027",
+        "uur": "00:00",
+        "zaalBeschikbaarVanafUur": "00:00",
+        "thuisPloegClub": "B",
+        "thuisPloegClubStamNummer": "9002",
+        "bezoekersPloegClub": "GRIVOK H GRIMBERGEN",
+        "bezoekersPloegClubStamNummer": "0678"
+      }
     ]
   },
   {
     "week": 15,
     "wedstrijden": [
-      "@{wedstrijdNummer=73; datum=22/01/2027; uur=20:15; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=AARSCHOT BVS H; thuisPloegClubStamNummer=0694; bezoekersPloegClub=SPORA LEUVEN H I; bezoekersPloegClubStamNummer=0539}",
-      "@{wedstrijdNummer=79; datum=18/01/2027; uur=00:00; zaalBeschikbaarVanafUur=00:00; thuisPloegClub=A; thuisPloegClubStamNummer=9001; bezoekersPloegClub=AARSCHOT BVS H; bezoekersPloegClubStamNummer=0694}",
-      "@{wedstrijdNummer=80; datum=19/01/2027; uur=21:15; zaalBeschikbaarVanafUur=21:00; thuisPloegClub=DE SOLVELDERS 1 TIELT-W.; thuisPloegClubStamNummer=0675; bezoekersPloegClub=STERKO KORTENBERG; bezoekersPloegClubStamNummer=0693}",
-      "@{wedstrijdNummer=81; datum=20/01/2027; uur=21:00; zaalBeschikbaarVanafUur=20:30; thuisPloegClub=GRIVOK H GRIMBERGEN; thuisPloegClubStamNummer=0678; bezoekersPloegClub=SUIKERVOC 2.0 TIENEN; bezoekersPloegClubStamNummer=0635}",
-      "@{wedstrijdNummer=83; datum=18/01/2027; uur=20:30; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=MOLENSTEDE VC; thuisPloegClubStamNummer=0676; bezoekersPloegClub=VLIERVOC LEUVEN; bezoekersPloegClubStamNummer=0156}",
-      "@{wedstrijdNummer=84; datum=19/01/2027; uur=21:00; zaalBeschikbaarVanafUur=20:30; thuisPloegClub=SPORA LEUVEN H I; thuisPloegClubStamNummer=0539; bezoekersPloegClub=B; bezoekersPloegClubStamNummer=9002}"
+      {
+        "wedstrijdNummer": 73,
+        "datum": "22/01/2027",
+        "uur": "20:15",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "AARSCHOT BVS H",
+        "thuisPloegClubStamNummer": "0694",
+        "bezoekersPloegClub": "SPORA LEUVEN H I",
+        "bezoekersPloegClubStamNummer": "0539"
+      },
+      {
+        "wedstrijdNummer": 79,
+        "datum": "18/01/2027",
+        "uur": "00:00",
+        "zaalBeschikbaarVanafUur": "00:00",
+        "thuisPloegClub": "A",
+        "thuisPloegClubStamNummer": "9001",
+        "bezoekersPloegClub": "AARSCHOT BVS H",
+        "bezoekersPloegClubStamNummer": "0694"
+      },
+      {
+        "wedstrijdNummer": 80,
+        "datum": "19/01/2027",
+        "uur": "21:15",
+        "zaalBeschikbaarVanafUur": "21:00",
+        "thuisPloegClub": "DE SOLVELDERS 1 TIELT-W.",
+        "thuisPloegClubStamNummer": "0675",
+        "bezoekersPloegClub": "STERKO KORTENBERG",
+        "bezoekersPloegClubStamNummer": "0693"
+      },
+      {
+        "wedstrijdNummer": 81,
+        "datum": "20/01/2027",
+        "uur": "21:00",
+        "zaalBeschikbaarVanafUur": "20:30",
+        "thuisPloegClub": "GRIVOK H GRIMBERGEN",
+        "thuisPloegClubStamNummer": "0678",
+        "bezoekersPloegClub": "SUIKERVOC 2.0 TIENEN",
+        "bezoekersPloegClubStamNummer": "0635"
+      },
+      {
+        "wedstrijdNummer": 83,
+        "datum": "18/01/2027",
+        "uur": "20:30",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "MOLENSTEDE VC",
+        "thuisPloegClubStamNummer": "0676",
+        "bezoekersPloegClub": "VLIERVOC LEUVEN",
+        "bezoekersPloegClubStamNummer": "0156"
+      },
+      {
+        "wedstrijdNummer": 84,
+        "datum": "19/01/2027",
+        "uur": "21:00",
+        "zaalBeschikbaarVanafUur": "20:30",
+        "thuisPloegClub": "SPORA LEUVEN H I",
+        "thuisPloegClubStamNummer": "0539",
+        "bezoekersPloegClub": "B",
+        "bezoekersPloegClubStamNummer": "9002"
+      }
     ]
   },
   {
     "week": 16,
     "wedstrijden": [
-      "@{wedstrijdNummer=82; datum=24/01/2027; uur=10:15; zaalBeschikbaarVanafUur=10:00; thuisPloegClub=AKUUT H HERENT VC; thuisPloegClubStamNummer=0654; bezoekersPloegClub=VIP ERPS KWERPS; bezoekersPloegClubStamNummer=0218}",
-      "@{wedstrijdNummer=86; datum=29/01/2027; uur=21:00; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=STERKO KORTENBERG; thuisPloegClubStamNummer=0693; bezoekersPloegClub=A; bezoekersPloegClubStamNummer=9001}",
-      "@{wedstrijdNummer=87; datum=28/01/2027; uur=20:30; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=SUIKERVOC 2.0 TIENEN; thuisPloegClubStamNummer=0635; bezoekersPloegClub=AKUUT H HERENT VC; bezoekersPloegClubStamNummer=0654}",
-      "@{wedstrijdNummer=88; datum=31/01/2027; uur=10:15; zaalBeschikbaarVanafUur=10:00; thuisPloegClub=VIP ERPS KWERPS; thuisPloegClubStamNummer=0218; bezoekersPloegClub=GRIVOK H GRIMBERGEN; bezoekersPloegClubStamNummer=0678}",
-      "@{wedstrijdNummer=89; datum=29/01/2027; uur=20:15; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=VLIERVOC LEUVEN; thuisPloegClubStamNummer=0156; bezoekersPloegClub=SPORA LEUVEN H I; bezoekersPloegClubStamNummer=0539}",
-      "@{wedstrijdNummer=90; datum=25/01/2027; uur=00:00; zaalBeschikbaarVanafUur=00:00; thuisPloegClub=B; thuisPloegClubStamNummer=9002; bezoekersPloegClub=MOLENSTEDE VC; bezoekersPloegClubStamNummer=0676}"
+      {
+        "wedstrijdNummer": 82,
+        "datum": "24/01/2027",
+        "uur": "10:15",
+        "zaalBeschikbaarVanafUur": "10:00",
+        "thuisPloegClub": "AKUUT H HERENT VC",
+        "thuisPloegClubStamNummer": "0654",
+        "bezoekersPloegClub": "VIP ERPS KWERPS",
+        "bezoekersPloegClubStamNummer": "0218"
+      },
+      {
+        "wedstrijdNummer": 86,
+        "datum": "29/01/2027",
+        "uur": "21:00",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "STERKO KORTENBERG",
+        "thuisPloegClubStamNummer": "0693",
+        "bezoekersPloegClub": "A",
+        "bezoekersPloegClubStamNummer": "9001"
+      },
+      {
+        "wedstrijdNummer": 87,
+        "datum": "28/01/2027",
+        "uur": "20:30",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "SUIKERVOC 2.0 TIENEN",
+        "thuisPloegClubStamNummer": "0635",
+        "bezoekersPloegClub": "AKUUT H HERENT VC",
+        "bezoekersPloegClubStamNummer": "0654"
+      },
+      {
+        "wedstrijdNummer": 88,
+        "datum": "31/01/2027",
+        "uur": "10:15",
+        "zaalBeschikbaarVanafUur": "10:00",
+        "thuisPloegClub": "VIP ERPS KWERPS",
+        "thuisPloegClubStamNummer": "0218",
+        "bezoekersPloegClub": "GRIVOK H GRIMBERGEN",
+        "bezoekersPloegClubStamNummer": "0678"
+      },
+      {
+        "wedstrijdNummer": 89,
+        "datum": "29/01/2027",
+        "uur": "20:15",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "VLIERVOC LEUVEN",
+        "thuisPloegClubStamNummer": "0156",
+        "bezoekersPloegClub": "SPORA LEUVEN H I",
+        "bezoekersPloegClubStamNummer": "0539"
+      },
+      {
+        "wedstrijdNummer": 90,
+        "datum": "25/01/2027",
+        "uur": "00:00",
+        "zaalBeschikbaarVanafUur": "00:00",
+        "thuisPloegClub": "B",
+        "thuisPloegClubStamNummer": "9002",
+        "bezoekersPloegClub": "MOLENSTEDE VC",
+        "bezoekersPloegClubStamNummer": "0676"
+      }
     ]
   },
   {
     "week": 17,
     "wedstrijden": [
-      "@{wedstrijdNummer=2; datum=19/02/2027; uur=21:00; zaalBeschikbaarVanafUur=20:30; thuisPloegClub=STERKO KORTENBERG; thuisPloegClubStamNummer=0693; bezoekersPloegClub=SPORA LEUVEN H I; bezoekersPloegClubStamNummer=0539}",
-      "@{wedstrijdNummer=91; datum=17/02/2027; uur=21:00; zaalBeschikbaarVanafUur=20:30; thuisPloegClub=GRIVOK H GRIMBERGEN; thuisPloegClubStamNummer=0678; bezoekersPloegClub=AARSCHOT BVS H; bezoekersPloegClubStamNummer=0694}",
-      "@{wedstrijdNummer=93; datum=15/02/2027; uur=20:30; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=MOLENSTEDE VC; thuisPloegClubStamNummer=0676; bezoekersPloegClub=SUIKERVOC 2.0 TIENEN; bezoekersPloegClubStamNummer=0635}",
-      "@{wedstrijdNummer=94; datum=16/02/2027; uur=21:00; zaalBeschikbaarVanafUur=20:30; thuisPloegClub=SPORA LEUVEN H I; thuisPloegClubStamNummer=0539; bezoekersPloegClub=VIP ERPS KWERPS; bezoekersPloegClubStamNummer=0218}",
-      "@{wedstrijdNummer=95; datum=15/02/2027; uur=00:00; zaalBeschikbaarVanafUur=00:00; thuisPloegClub=A; thuisPloegClubStamNummer=9001; bezoekersPloegClub=VLIERVOC LEUVEN; bezoekersPloegClubStamNummer=0156}",
-      "@{wedstrijdNummer=96; datum=16/02/2027; uur=21:15; zaalBeschikbaarVanafUur=21:00; thuisPloegClub=DE SOLVELDERS 1 TIELT-W.; thuisPloegClubStamNummer=0675; bezoekersPloegClub=B; bezoekersPloegClubStamNummer=9002}"
+      {
+        "wedstrijdNummer": 2,
+        "datum": "19/02/2027",
+        "uur": "21:00",
+        "zaalBeschikbaarVanafUur": "20:30",
+        "thuisPloegClub": "STERKO KORTENBERG",
+        "thuisPloegClubStamNummer": "0693",
+        "bezoekersPloegClub": "SPORA LEUVEN H I",
+        "bezoekersPloegClubStamNummer": "0539"
+      },
+      {
+        "wedstrijdNummer": 91,
+        "datum": "17/02/2027",
+        "uur": "21:00",
+        "zaalBeschikbaarVanafUur": "20:30",
+        "thuisPloegClub": "GRIVOK H GRIMBERGEN",
+        "thuisPloegClubStamNummer": "0678",
+        "bezoekersPloegClub": "AARSCHOT BVS H",
+        "bezoekersPloegClubStamNummer": "0694"
+      },
+      {
+        "wedstrijdNummer": 93,
+        "datum": "15/02/2027",
+        "uur": "20:30",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "MOLENSTEDE VC",
+        "thuisPloegClubStamNummer": "0676",
+        "bezoekersPloegClub": "SUIKERVOC 2.0 TIENEN",
+        "bezoekersPloegClubStamNummer": "0635"
+      },
+      {
+        "wedstrijdNummer": 94,
+        "datum": "16/02/2027",
+        "uur": "21:00",
+        "zaalBeschikbaarVanafUur": "20:30",
+        "thuisPloegClub": "SPORA LEUVEN H I",
+        "thuisPloegClubStamNummer": "0539",
+        "bezoekersPloegClub": "VIP ERPS KWERPS",
+        "bezoekersPloegClubStamNummer": "0218"
+      },
+      {
+        "wedstrijdNummer": 95,
+        "datum": "15/02/2027",
+        "uur": "00:00",
+        "zaalBeschikbaarVanafUur": "00:00",
+        "thuisPloegClub": "A",
+        "thuisPloegClubStamNummer": "9001",
+        "bezoekersPloegClub": "VLIERVOC LEUVEN",
+        "bezoekersPloegClubStamNummer": "0156"
+      },
+      {
+        "wedstrijdNummer": 96,
+        "datum": "16/02/2027",
+        "uur": "21:15",
+        "zaalBeschikbaarVanafUur": "21:00",
+        "thuisPloegClub": "DE SOLVELDERS 1 TIELT-W.",
+        "thuisPloegClubStamNummer": "0675",
+        "bezoekersPloegClub": "B",
+        "bezoekersPloegClubStamNummer": "9002"
+      }
     ]
   },
   {
     "week": 18,
     "wedstrijden": [
-      "@{wedstrijdNummer=92; datum=21/02/2027; uur=10:15; zaalBeschikbaarVanafUur=10:00; thuisPloegClub=AKUUT H HERENT VC; thuisPloegClubStamNummer=0654; bezoekersPloegClub=STERKO KORTENBERG; bezoekersPloegClubStamNummer=0693}",
-      "@{wedstrijdNummer=97; datum=26/02/2027; uur=20:15; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=AARSCHOT BVS H; thuisPloegClubStamNummer=0694; bezoekersPloegClub=AKUUT H HERENT VC; bezoekersPloegClubStamNummer=0654}",
-      "@{wedstrijdNummer=98; datum=26/02/2027; uur=21:00; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=STERKO KORTENBERG; thuisPloegClubStamNummer=0693; bezoekersPloegClub=GRIVOK H GRIMBERGEN; bezoekersPloegClubStamNummer=0678}",
-      "@{wedstrijdNummer=99; datum=25/02/2027; uur=20:30; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=SUIKERVOC 2.0 TIENEN; thuisPloegClubStamNummer=0635; bezoekersPloegClub=SPORA LEUVEN H I; bezoekersPloegClubStamNummer=0539}",
-      "@{wedstrijdNummer=101; datum=26/02/2027; uur=20:15; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=VLIERVOC LEUVEN; thuisPloegClubStamNummer=0156; bezoekersPloegClub=DE SOLVELDERS 1 TIELT-W.; bezoekersPloegClubStamNummer=0675}",
-      "@{wedstrijdNummer=102; datum=22/02/2027; uur=00:00; zaalBeschikbaarVanafUur=00:00; thuisPloegClub=B; thuisPloegClubStamNummer=9002; bezoekersPloegClub=A; bezoekersPloegClubStamNummer=9001}"
+      {
+        "wedstrijdNummer": 92,
+        "datum": "21/02/2027",
+        "uur": "10:15",
+        "zaalBeschikbaarVanafUur": "10:00",
+        "thuisPloegClub": "AKUUT H HERENT VC",
+        "thuisPloegClubStamNummer": "0654",
+        "bezoekersPloegClub": "STERKO KORTENBERG",
+        "bezoekersPloegClubStamNummer": "0693"
+      },
+      {
+        "wedstrijdNummer": 97,
+        "datum": "26/02/2027",
+        "uur": "20:15",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "AARSCHOT BVS H",
+        "thuisPloegClubStamNummer": "0694",
+        "bezoekersPloegClub": "AKUUT H HERENT VC",
+        "bezoekersPloegClubStamNummer": "0654"
+      },
+      {
+        "wedstrijdNummer": 98,
+        "datum": "26/02/2027",
+        "uur": "21:00",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "STERKO KORTENBERG",
+        "thuisPloegClubStamNummer": "0693",
+        "bezoekersPloegClub": "GRIVOK H GRIMBERGEN",
+        "bezoekersPloegClubStamNummer": "0678"
+      },
+      {
+        "wedstrijdNummer": 99,
+        "datum": "25/02/2027",
+        "uur": "20:30",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "SUIKERVOC 2.0 TIENEN",
+        "thuisPloegClubStamNummer": "0635",
+        "bezoekersPloegClub": "SPORA LEUVEN H I",
+        "bezoekersPloegClubStamNummer": "0539"
+      },
+      {
+        "wedstrijdNummer": 101,
+        "datum": "26/02/2027",
+        "uur": "20:15",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "VLIERVOC LEUVEN",
+        "thuisPloegClubStamNummer": "0156",
+        "bezoekersPloegClub": "DE SOLVELDERS 1 TIELT-W.",
+        "bezoekersPloegClubStamNummer": "0675"
+      },
+      {
+        "wedstrijdNummer": 102,
+        "datum": "22/02/2027",
+        "uur": "00:00",
+        "zaalBeschikbaarVanafUur": "00:00",
+        "thuisPloegClub": "B",
+        "thuisPloegClubStamNummer": "9002",
+        "bezoekersPloegClub": "A",
+        "bezoekersPloegClubStamNummer": "9001"
+      }
     ]
   },
   {
     "week": 19,
     "wedstrijden": [
-      "@{wedstrijdNummer=103; datum=07/03/2027; uur=10:15; zaalBeschikbaarVanafUur=10:00; thuisPloegClub=VIP ERPS KWERPS; thuisPloegClubStamNummer=0218; bezoekersPloegClub=AARSCHOT BVS H; bezoekersPloegClubStamNummer=0694}",
-      "@{wedstrijdNummer=104; datum=05/03/2027; uur=20:15; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=VLIERVOC LEUVEN; thuisPloegClubStamNummer=0156; bezoekersPloegClub=STERKO KORTENBERG; bezoekersPloegClubStamNummer=0693}",
-      "@{wedstrijdNummer=105; datum=01/03/2027; uur=00:00; zaalBeschikbaarVanafUur=00:00; thuisPloegClub=B; thuisPloegClubStamNummer=9002; bezoekersPloegClub=SUIKERVOC 2.0 TIENEN; bezoekersPloegClubStamNummer=0635}",
-      "@{wedstrijdNummer=106; datum=02/03/2027; uur=21:15; zaalBeschikbaarVanafUur=21:00; thuisPloegClub=DE SOLVELDERS 1 TIELT-W.; thuisPloegClubStamNummer=0675; bezoekersPloegClub=MOLENSTEDE VC; bezoekersPloegClubStamNummer=0676}",
-      "@{wedstrijdNummer=107; datum=03/03/2027; uur=21:00; zaalBeschikbaarVanafUur=20:30; thuisPloegClub=GRIVOK H GRIMBERGEN; thuisPloegClubStamNummer=0678; bezoekersPloegClub=SPORA LEUVEN H I; bezoekersPloegClubStamNummer=0539}",
-      "@{wedstrijdNummer=108; datum=07/03/2027; uur=10:15; zaalBeschikbaarVanafUur=10:00; thuisPloegClub=AKUUT H HERENT VC; thuisPloegClubStamNummer=0654; bezoekersPloegClub=A; bezoekersPloegClubStamNummer=9001}"
+      {
+        "wedstrijdNummer": 103,
+        "datum": "07/03/2027",
+        "uur": "10:15",
+        "zaalBeschikbaarVanafUur": "10:00",
+        "thuisPloegClub": "VIP ERPS KWERPS",
+        "thuisPloegClubStamNummer": "0218",
+        "bezoekersPloegClub": "AARSCHOT BVS H",
+        "bezoekersPloegClubStamNummer": "0694"
+      },
+      {
+        "wedstrijdNummer": 104,
+        "datum": "05/03/2027",
+        "uur": "20:15",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "VLIERVOC LEUVEN",
+        "thuisPloegClubStamNummer": "0156",
+        "bezoekersPloegClub": "STERKO KORTENBERG",
+        "bezoekersPloegClubStamNummer": "0693"
+      },
+      {
+        "wedstrijdNummer": 105,
+        "datum": "01/03/2027",
+        "uur": "00:00",
+        "zaalBeschikbaarVanafUur": "00:00",
+        "thuisPloegClub": "B",
+        "thuisPloegClubStamNummer": "9002",
+        "bezoekersPloegClub": "SUIKERVOC 2.0 TIENEN",
+        "bezoekersPloegClubStamNummer": "0635"
+      },
+      {
+        "wedstrijdNummer": 106,
+        "datum": "02/03/2027",
+        "uur": "21:15",
+        "zaalBeschikbaarVanafUur": "21:00",
+        "thuisPloegClub": "DE SOLVELDERS 1 TIELT-W.",
+        "thuisPloegClubStamNummer": "0675",
+        "bezoekersPloegClub": "MOLENSTEDE VC",
+        "bezoekersPloegClubStamNummer": "0676"
+      },
+      {
+        "wedstrijdNummer": 107,
+        "datum": "03/03/2027",
+        "uur": "21:00",
+        "zaalBeschikbaarVanafUur": "20:30",
+        "thuisPloegClub": "GRIVOK H GRIMBERGEN",
+        "thuisPloegClubStamNummer": "0678",
+        "bezoekersPloegClub": "SPORA LEUVEN H I",
+        "bezoekersPloegClubStamNummer": "0539"
+      },
+      {
+        "wedstrijdNummer": 108,
+        "datum": "07/03/2027",
+        "uur": "10:15",
+        "zaalBeschikbaarVanafUur": "10:00",
+        "thuisPloegClub": "AKUUT H HERENT VC",
+        "thuisPloegClubStamNummer": "0654",
+        "bezoekersPloegClub": "A",
+        "bezoekersPloegClubStamNummer": "9001"
+      }
     ]
   },
   {
     "week": 20,
     "wedstrijden": [
-      "@{wedstrijdNummer=109; datum=12/03/2027; uur=20:15; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=AARSCHOT BVS H; thuisPloegClubStamNummer=0694; bezoekersPloegClub=VLIERVOC LEUVEN; bezoekersPloegClubStamNummer=0156}",
-      "@{wedstrijdNummer=110; datum=12/03/2027; uur=21:00; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=STERKO KORTENBERG; thuisPloegClubStamNummer=0693; bezoekersPloegClub=B; bezoekersPloegClubStamNummer=9002}",
-      "@{wedstrijdNummer=111; datum=11/03/2027; uur=20:30; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=SUIKERVOC 2.0 TIENEN; thuisPloegClubStamNummer=0635; bezoekersPloegClub=VIP ERPS KWERPS; bezoekersPloegClubStamNummer=0218}",
-      "@{wedstrijdNummer=112; datum=08/03/2027; uur=20:30; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=MOLENSTEDE VC; thuisPloegClubStamNummer=0676; bezoekersPloegClub=GRIVOK H GRIMBERGEN; bezoekersPloegClubStamNummer=0678}",
-      "@{wedstrijdNummer=113; datum=09/03/2027; uur=21:00; zaalBeschikbaarVanafUur=20:30; thuisPloegClub=SPORA LEUVEN H I; thuisPloegClubStamNummer=0539; bezoekersPloegClub=AKUUT H HERENT VC; bezoekersPloegClubStamNummer=0654}",
-      "@{wedstrijdNummer=114; datum=08/03/2027; uur=00:00; zaalBeschikbaarVanafUur=00:00; thuisPloegClub=A; thuisPloegClubStamNummer=9001; bezoekersPloegClub=DE SOLVELDERS 1 TIELT-W.; bezoekersPloegClubStamNummer=0675}"
+      {
+        "wedstrijdNummer": 109,
+        "datum": "12/03/2027",
+        "uur": "20:15",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "AARSCHOT BVS H",
+        "thuisPloegClubStamNummer": "0694",
+        "bezoekersPloegClub": "VLIERVOC LEUVEN",
+        "bezoekersPloegClubStamNummer": "0156"
+      },
+      {
+        "wedstrijdNummer": 110,
+        "datum": "12/03/2027",
+        "uur": "21:00",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "STERKO KORTENBERG",
+        "thuisPloegClubStamNummer": "0693",
+        "bezoekersPloegClub": "B",
+        "bezoekersPloegClubStamNummer": "9002"
+      },
+      {
+        "wedstrijdNummer": 111,
+        "datum": "11/03/2027",
+        "uur": "20:30",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "SUIKERVOC 2.0 TIENEN",
+        "thuisPloegClubStamNummer": "0635",
+        "bezoekersPloegClub": "VIP ERPS KWERPS",
+        "bezoekersPloegClubStamNummer": "0218"
+      },
+      {
+        "wedstrijdNummer": 112,
+        "datum": "08/03/2027",
+        "uur": "20:30",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "MOLENSTEDE VC",
+        "thuisPloegClubStamNummer": "0676",
+        "bezoekersPloegClub": "GRIVOK H GRIMBERGEN",
+        "bezoekersPloegClubStamNummer": "0678"
+      },
+      {
+        "wedstrijdNummer": 113,
+        "datum": "09/03/2027",
+        "uur": "21:00",
+        "zaalBeschikbaarVanafUur": "20:30",
+        "thuisPloegClub": "SPORA LEUVEN H I",
+        "thuisPloegClubStamNummer": "0539",
+        "bezoekersPloegClub": "AKUUT H HERENT VC",
+        "bezoekersPloegClubStamNummer": "0654"
+      },
+      {
+        "wedstrijdNummer": 114,
+        "datum": "08/03/2027",
+        "uur": "00:00",
+        "zaalBeschikbaarVanafUur": "00:00",
+        "thuisPloegClub": "A",
+        "thuisPloegClubStamNummer": "9001",
+        "bezoekersPloegClub": "DE SOLVELDERS 1 TIELT-W.",
+        "bezoekersPloegClubStamNummer": "0675"
+      }
     ]
   },
   {
     "week": 21,
     "wedstrijden": [
-      "@{wedstrijdNummer=115; datum=19/03/2027; uur=21:00; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=STERKO KORTENBERG; thuisPloegClubStamNummer=0693; bezoekersPloegClub=AARSCHOT BVS H; bezoekersPloegClubStamNummer=0694}",
-      "@{wedstrijdNummer=116; datum=15/03/2027; uur=00:00; zaalBeschikbaarVanafUur=00:00; thuisPloegClub=B; thuisPloegClubStamNummer=9002; bezoekersPloegClub=VIP ERPS KWERPS; bezoekersPloegClubStamNummer=0218}",
-      "@{wedstrijdNummer=117; datum=19/03/2027; uur=20:15; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=VLIERVOC LEUVEN; thuisPloegClubStamNummer=0156; bezoekersPloegClub=SUIKERVOC 2.0 TIENEN; bezoekersPloegClubStamNummer=0635}",
-      "@{wedstrijdNummer=118; datum=16/03/2027; uur=21:00; zaalBeschikbaarVanafUur=20:30; thuisPloegClub=SPORA LEUVEN H I; thuisPloegClubStamNummer=0539; bezoekersPloegClub=MOLENSTEDE VC; bezoekersPloegClubStamNummer=0676}",
-      "@{wedstrijdNummer=120; datum=17/03/2027; uur=21:00; zaalBeschikbaarVanafUur=20:30; thuisPloegClub=GRIVOK H GRIMBERGEN; thuisPloegClubStamNummer=0678; bezoekersPloegClub=A; bezoekersPloegClubStamNummer=9001}",
-      "@{wedstrijdNummer=124; datum=22/03/2027; uur=20:30; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=MOLENSTEDE VC; thuisPloegClubStamNummer=0676; bezoekersPloegClub=AKUUT H HERENT VC; bezoekersPloegClubStamNummer=0654}"
+      {
+        "wedstrijdNummer": 115,
+        "datum": "19/03/2027",
+        "uur": "21:00",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "STERKO KORTENBERG",
+        "thuisPloegClubStamNummer": "0693",
+        "bezoekersPloegClub": "AARSCHOT BVS H",
+        "bezoekersPloegClubStamNummer": "0694"
+      },
+      {
+        "wedstrijdNummer": 116,
+        "datum": "15/03/2027",
+        "uur": "00:00",
+        "zaalBeschikbaarVanafUur": "00:00",
+        "thuisPloegClub": "B",
+        "thuisPloegClubStamNummer": "9002",
+        "bezoekersPloegClub": "VIP ERPS KWERPS",
+        "bezoekersPloegClubStamNummer": "0218"
+      },
+      {
+        "wedstrijdNummer": 117,
+        "datum": "19/03/2027",
+        "uur": "20:15",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "VLIERVOC LEUVEN",
+        "thuisPloegClubStamNummer": "0156",
+        "bezoekersPloegClub": "SUIKERVOC 2.0 TIENEN",
+        "bezoekersPloegClubStamNummer": "0635"
+      },
+      {
+        "wedstrijdNummer": 118,
+        "datum": "16/03/2027",
+        "uur": "21:00",
+        "zaalBeschikbaarVanafUur": "20:30",
+        "thuisPloegClub": "SPORA LEUVEN H I",
+        "thuisPloegClubStamNummer": "0539",
+        "bezoekersPloegClub": "MOLENSTEDE VC",
+        "bezoekersPloegClubStamNummer": "0676"
+      },
+      {
+        "wedstrijdNummer": 120,
+        "datum": "17/03/2027",
+        "uur": "21:00",
+        "zaalBeschikbaarVanafUur": "20:30",
+        "thuisPloegClub": "GRIVOK H GRIMBERGEN",
+        "thuisPloegClubStamNummer": "0678",
+        "bezoekersPloegClub": "A",
+        "bezoekersPloegClubStamNummer": "9001"
+      },
+      {
+        "wedstrijdNummer": 124,
+        "datum": "22/03/2027",
+        "uur": "20:30",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "MOLENSTEDE VC",
+        "thuisPloegClubStamNummer": "0676",
+        "bezoekersPloegClub": "AKUUT H HERENT VC",
+        "bezoekersPloegClubStamNummer": "0654"
+      }
     ]
   },
   {
     "week": 22,
     "wedstrijden": [
-      "@{wedstrijdNummer=121; datum=26/03/2027; uur=20:15; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=AARSCHOT BVS H; thuisPloegClubStamNummer=0694; bezoekersPloegClub=B; bezoekersPloegClubStamNummer=9002}",
-      "@{wedstrijdNummer=122; datum=26/03/2027; uur=21:00; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=STERKO KORTENBERG; thuisPloegClubStamNummer=0693; bezoekersPloegClub=SUIKERVOC 2.0 TIENEN; bezoekersPloegClubStamNummer=0635}",
-      "@{wedstrijdNummer=123; datum=26/03/2027; uur=20:15; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=VLIERVOC LEUVEN; thuisPloegClubStamNummer=0156; bezoekersPloegClub=VIP ERPS KWERPS; bezoekersPloegClubStamNummer=0218}",
-      "@{wedstrijdNummer=125; datum=23/03/2027; uur=21:00; zaalBeschikbaarVanafUur=20:30; thuisPloegClub=SPORA LEUVEN H I; thuisPloegClubStamNummer=0539; bezoekersPloegClub=A; bezoekersPloegClubStamNummer=9001}",
-      "@{wedstrijdNummer=126; datum=24/03/2027; uur=21:00; zaalBeschikbaarVanafUur=20:30; thuisPloegClub=GRIVOK H GRIMBERGEN; thuisPloegClubStamNummer=0678; bezoekersPloegClub=DE SOLVELDERS 1 TIELT-W.; bezoekersPloegClubStamNummer=0675}",
-      "@{wedstrijdNummer=130; datum=12/04/2027; uur=00:00; zaalBeschikbaarVanafUur=00:00; thuisPloegClub=A; thuisPloegClubStamNummer=9001; bezoekersPloegClub=MOLENSTEDE VC; bezoekersPloegClubStamNummer=0676}"
+      {
+        "wedstrijdNummer": 121,
+        "datum": "26/03/2027",
+        "uur": "20:15",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "AARSCHOT BVS H",
+        "thuisPloegClubStamNummer": "0694",
+        "bezoekersPloegClub": "B",
+        "bezoekersPloegClubStamNummer": "9002"
+      },
+      {
+        "wedstrijdNummer": 122,
+        "datum": "26/03/2027",
+        "uur": "21:00",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "STERKO KORTENBERG",
+        "thuisPloegClubStamNummer": "0693",
+        "bezoekersPloegClub": "SUIKERVOC 2.0 TIENEN",
+        "bezoekersPloegClubStamNummer": "0635"
+      },
+      {
+        "wedstrijdNummer": 123,
+        "datum": "26/03/2027",
+        "uur": "20:15",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "VLIERVOC LEUVEN",
+        "thuisPloegClubStamNummer": "0156",
+        "bezoekersPloegClub": "VIP ERPS KWERPS",
+        "bezoekersPloegClubStamNummer": "0218"
+      },
+      {
+        "wedstrijdNummer": 125,
+        "datum": "23/03/2027",
+        "uur": "21:00",
+        "zaalBeschikbaarVanafUur": "20:30",
+        "thuisPloegClub": "SPORA LEUVEN H I",
+        "thuisPloegClubStamNummer": "0539",
+        "bezoekersPloegClub": "A",
+        "bezoekersPloegClubStamNummer": "9001"
+      },
+      {
+        "wedstrijdNummer": 126,
+        "datum": "24/03/2027",
+        "uur": "21:00",
+        "zaalBeschikbaarVanafUur": "20:30",
+        "thuisPloegClub": "GRIVOK H GRIMBERGEN",
+        "thuisPloegClubStamNummer": "0678",
+        "bezoekersPloegClub": "DE SOLVELDERS 1 TIELT-W.",
+        "bezoekersPloegClubStamNummer": "0675"
+      },
+      {
+        "wedstrijdNummer": 130,
+        "datum": "12/04/2027",
+        "uur": "00:00",
+        "zaalBeschikbaarVanafUur": "00:00",
+        "thuisPloegClub": "A",
+        "thuisPloegClubStamNummer": "9001",
+        "bezoekersPloegClub": "MOLENSTEDE VC",
+        "bezoekersPloegClubStamNummer": "0676"
+      }
     ]
   },
   {
     "week": 23,
     "wedstrijden": [
-      "@{wedstrijdNummer=100; datum=25/04/2027; uur=10:15; zaalBeschikbaarVanafUur=10:00; thuisPloegClub=VIP ERPS KWERPS; thuisPloegClubStamNummer=0218; bezoekersPloegClub=MOLENSTEDE VC; bezoekersPloegClubStamNummer=0676}",
-      "@{wedstrijdNummer=127; datum=15/04/2027; uur=20:30; zaalBeschikbaarVanafUur=20:00; thuisPloegClub=SUIKERVOC 2.0 TIENEN; thuisPloegClubStamNummer=0635; bezoekersPloegClub=AARSCHOT BVS H; bezoekersPloegClubStamNummer=0694}",
-      "@{wedstrijdNummer=128; datum=18/04/2027; uur=10:15; zaalBeschikbaarVanafUur=10:00; thuisPloegClub=VIP ERPS KWERPS; thuisPloegClubStamNummer=0218; bezoekersPloegClub=STERKO KORTENBERG; bezoekersPloegClubStamNummer=0693}",
-      "@{wedstrijdNummer=129; datum=12/04/2027; uur=00:00; zaalBeschikbaarVanafUur=00:00; thuisPloegClub=B; thuisPloegClubStamNummer=9002; bezoekersPloegClub=VLIERVOC LEUVEN; bezoekersPloegClubStamNummer=0156}",
-      "@{wedstrijdNummer=131; datum=18/04/2027; uur=10:15; zaalBeschikbaarVanafUur=10:00; thuisPloegClub=AKUUT H HERENT VC; thuisPloegClubStamNummer=0654; bezoekersPloegClub=GRIVOK H GRIMBERGEN; bezoekersPloegClubStamNummer=0678}",
-      "@{wedstrijdNummer=132; datum=13/04/2027; uur=21:15; zaalBeschikbaarVanafUur=21:00; thuisPloegClub=DE SOLVELDERS 1 TIELT-W.; thuisPloegClubStamNummer=0675; bezoekersPloegClub=SPORA LEUVEN H I; bezoekersPloegClubStamNummer=0539}"
+      {
+        "wedstrijdNummer": 100,
+        "datum": "25/04/2027",
+        "uur": "10:15",
+        "zaalBeschikbaarVanafUur": "10:00",
+        "thuisPloegClub": "VIP ERPS KWERPS",
+        "thuisPloegClubStamNummer": "0218",
+        "bezoekersPloegClub": "MOLENSTEDE VC",
+        "bezoekersPloegClubStamNummer": "0676"
+      },
+      {
+        "wedstrijdNummer": 127,
+        "datum": "15/04/2027",
+        "uur": "20:30",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "SUIKERVOC 2.0 TIENEN",
+        "thuisPloegClubStamNummer": "0635",
+        "bezoekersPloegClub": "AARSCHOT BVS H",
+        "bezoekersPloegClubStamNummer": "0694"
+      },
+      {
+        "wedstrijdNummer": 128,
+        "datum": "18/04/2027",
+        "uur": "10:15",
+        "zaalBeschikbaarVanafUur": "10:00",
+        "thuisPloegClub": "VIP ERPS KWERPS",
+        "thuisPloegClubStamNummer": "0218",
+        "bezoekersPloegClub": "STERKO KORTENBERG",
+        "bezoekersPloegClubStamNummer": "0693"
+      },
+      {
+        "wedstrijdNummer": 129,
+        "datum": "12/04/2027",
+        "uur": "00:00",
+        "zaalBeschikbaarVanafUur": "00:00",
+        "thuisPloegClub": "B",
+        "thuisPloegClubStamNummer": "9002",
+        "bezoekersPloegClub": "VLIERVOC LEUVEN",
+        "bezoekersPloegClubStamNummer": "0156"
+      },
+      {
+        "wedstrijdNummer": 131,
+        "datum": "18/04/2027",
+        "uur": "10:15",
+        "zaalBeschikbaarVanafUur": "10:00",
+        "thuisPloegClub": "AKUUT H HERENT VC",
+        "thuisPloegClubStamNummer": "0654",
+        "bezoekersPloegClub": "GRIVOK H GRIMBERGEN",
+        "bezoekersPloegClubStamNummer": "0678"
+      },
+      {
+        "wedstrijdNummer": 132,
+        "datum": "13/04/2027",
+        "uur": "21:15",
+        "zaalBeschikbaarVanafUur": "21:00",
+        "thuisPloegClub": "DE SOLVELDERS 1 TIELT-W.",
+        "thuisPloegClubStamNummer": "0675",
+        "bezoekersPloegClub": "SPORA LEUVEN H I",
+        "bezoekersPloegClubStamNummer": "0539"
+      }
     ]
   }
 ]
