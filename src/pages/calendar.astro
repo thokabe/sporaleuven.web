@@ -122,6 +122,7 @@ const formatDatum = (date: Date) =>
 <script>
   type CalendarGame = {
     DateTime: string;
+    DateTimeWithDayOfWeek: string;
     TeamHome: string;
     TeamAway: string;
     ScoreHome: number | null;
@@ -153,8 +154,7 @@ const formatDatum = (date: Date) =>
         const row = document.createElement('tr');
         row.className = 'border-t border-slate-100';
         const values = [
-          dateFormatter.format(new Date(game.DateTime)),
-          `${game.DateTime.slice(11, 16)}h`,
+          game.DateTimeWithDayOfWeek,
           game.TeamHome,
           game.TeamAway,
           game.ScoreHome === null || game.ScoreAway === null ? '-' : `${game.ScoreHome} - ${game.ScoreAway}`,

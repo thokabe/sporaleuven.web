@@ -13,6 +13,14 @@ namespace Api.Tests;
 
 public class CalendarFunctionTests
 {
+    [Fact]
+    public void CalendarGameDto_FormatsDateTimeWithDutchDayOfWeek()
+    {
+        var game = new CalendarGameDto(new DateTime(2026, 10, 20, 21, 0, 0), "home", "away", null, null);
+
+        Assert.Equal("di 20 okt 2026 21:00", game.DateTimeWithDayOfWeek);
+    }
+
     [Theory]
     [InlineData("api/calendar/2627/vlm/H2", "SPORA LEUVEN H I")]
     [InlineData("api/calendar/2627/vlm/D2A", "SPORA LEUVEN DAMES")]
@@ -31,6 +39,7 @@ public class CalendarFunctionTests
         Assert.NotNull(games);
         Assert.NotEmpty(games);
         Assert.Contains(games, game => game.TeamHome == expectedTeam || game.TeamAway == expectedTeam);
+        Assert.All(games, game => Assert.Equal(game.DateTime.DayOfWeek, game.DayOfWeek));
     }
 
     [Theory]
