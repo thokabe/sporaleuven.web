@@ -12,6 +12,7 @@ public sealed record CalendarGameDto(
 {
     public DayOfWeek DayOfWeek => DateTime.DayOfWeek;
     public string DateTimeWithDayOfWeek => DateTime.ToString("ddd d MMM yyyy HH:mm", CultureInfo.GetCultureInfo("nl-BE"));
+    public string DateWithDayOfWeek => DateTime.ToString("ddd d MMM yyyy", CultureInfo.GetCultureInfo("nl-BE"));
 }
 
 public sealed record CalendarErrorDto([property: JsonPropertyName("error")] string Error);

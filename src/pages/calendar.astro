@@ -123,6 +123,7 @@ const formatDatum = (date: Date) =>
   type CalendarGame = {
     DateTime: string;
     DateTimeWithDayOfWeek: string;
+    DateWithDayOfWeek: string;
     TeamHome: string;
     TeamAway: string;
     ScoreHome: number | null;
@@ -131,7 +132,7 @@ const formatDatum = (date: Date) =>
 
   const buttons = document.querySelectorAll<HTMLButtonElement>('.tab-button');
   const panels = document.querySelectorAll<HTMLElement>('[data-tab-panel]');
-  const dateFormatter = new Intl.DateTimeFormat('nl-BE', { day: '2-digit', month: 'short', year: 'numeric' });
+  const timeFormatter = new Intl.DateTimeFormat('nl-BE', { hour: '2-digit', minute: '2-digit', hourCycle: 'h23' });
   const competitionLoaders = new Map<string, () => void>();
 
   document.querySelectorAll<HTMLElement>('[data-competition-path]').forEach((panel) => {
@@ -154,7 +155,8 @@ const formatDatum = (date: Date) =>
         const row = document.createElement('tr');
         row.className = 'border-t border-slate-100';
         const values = [
-          game.DateTimeWithDayOfWeek,
+          game.DateWithDayOfWeek,
+          timeFormatter.format(new Date(game.DateTime)),
           game.TeamHome,
           game.TeamAway,
           game.ScoreHome === null || game.ScoreAway === null ? '-' : `${game.ScoreHome} - ${game.ScoreAway}`,

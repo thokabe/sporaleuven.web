@@ -14,10 +14,11 @@ namespace Api.Tests;
 public class CalendarFunctionTests
 {
     [Fact]
-    public void CalendarGameDto_FormatsDateTimeWithDutchDayOfWeek()
+    public void CalendarGameDto_FormatsDateAndDateTimeWithDutchDayOfWeek()
     {
         var game = new CalendarGameDto(new DateTime(2026, 10, 20, 21, 0, 0), "home", "away", null, null);
 
+        Assert.Equal("di 20 okt 2026", game.DateWithDayOfWeek);
         Assert.Equal("di 20 okt 2026 21:00", game.DateTimeWithDayOfWeek);
     }
 
