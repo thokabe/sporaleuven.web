@@ -22,6 +22,54 @@ public class CalendarFunctionTests
         Assert.Equal("di 20 okt 2026 21:00", game.DateTimeWithDayOfWeek);
     }
 
+    [Fact]
+    public async Task Run_ReturnsCalendarFromRepository()
+    {
+        IReadOnlyList<CalendarGameDto> expectedGames =
+        [
+            new CalendarGameDto(new DateTime(2026, 10, 20, 21, 0, 0), "home", "away", null, null)
+        ];
+        var repository = new Mock<ICalendarRepository>();
+        repository.Setup(repo => repo.GetCalendarAsync("2627", "vlm", "H2"))
+            .ReturnsAsync(expectedGames);
+
+        var response = await new CalendarFunction(repository.Object)
+            .Run(CreateRequest(), "2627", "vlm", "H2");
+
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        response.Body.Position = 0;
+        var games = await JsonSerializer.DeserializeAsync<List<CalendarGameDto>>(
+            response.Body,
+            new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+        Assert.Equal(expectedGames, games);
+        repository.Verify(repo => repo.GetCalendarAsync("2627", "vlm", "H2"), Times.Once);
+    }
+
+    [Fact]
+    public async Task RunByTeam_FiltersRepositoryCalendarCaseInsensitively()
+    {
+        IReadOnlyList<CalendarGameDto> games =
+        [
+            new CalendarGameDto(new DateTime(2026, 10, 20, 21, 0, 0), "SPORA LEUVEN H I", "away", null, null),
+            new CalendarGameDto(new DateTime(2026, 10, 21, 21, 0, 0), "home", "other", null, null)
+        ];
+        var repository = new Mock<ICalendarRepository>();
+        repository.Setup(repo => repo.GetCalendarAsync("2627", "vlm", "H2"))
+            .ReturnsAsync(games);
+
+        var response = await new CalendarFunction(repository.Object)
+            .RunByTeam(CreateRequest(), "2627", "vlm", "H2", "spora leuven");
+
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        response.Body.Position = 0;
+        var filteredGames = await JsonSerializer.DeserializeAsync<List<CalendarGameDto>>(
+            response.Body,
+            new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+        Assert.Single(filteredGames!);
+        Assert.Equal("SPORA LEUVEN H I", filteredGames![0].TeamHome);
+        repository.Verify(repo => repo.GetCalendarAsync("2627", "vlm", "H2"), Times.Once);
+    }
+
     [Theory]
     [InlineData("api/calendar/2627/vlm/H2", "SPORA LEUVEN H I")]
     [InlineData("api/calendar/2627/vlm/D2A", "SPORA LEUVEN DAMES")]
@@ -30,7 +78,7 @@ public class CalendarFunctionTests
         var routeSegments = apiPath.Split('/');
         var request = CreateRequest();
 
-        var response = await new CalendarFunction().Run(request, routeSegments[2], routeSegments[3], routeSegments[4]);
+        var response = await CreateFileBackedCalendarFunction().Run(request, routeSegments[2], routeSegments[3], routeSegments[4]);
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         response.Body.Position = 0;
@@ -48,7 +96,7 @@ public class CalendarFunctionTests
     [InlineData("D2A", "SPORA LEUVEN DAMES")]
     public async Task Run_ExcludesPlaceholderTeamsWithoutMatchingSubstrings(string competition, string expectedTeam)
     {
-        var response = await new CalendarFunction().Run(CreateRequest(), "2627", "vlm", competition);
+        var response = await CreateFileBackedCalendarFunction().Run(CreateRequest(), "2627", "vlm", competition);
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         response.Body.Position = 0;
@@ -64,7 +112,7 @@ public class CalendarFunctionTests
     [Fact]
     public async Task Run_RejectsUnknownLeague()
     {
-        var response = await new CalendarFunction().Run(CreateRequest(), "2627", "unknown", "H2");
+        var response = await CreateFileBackedCalendarFunction().Run(CreateRequest(), "2627", "unknown", "H2");
 
         Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
     }
@@ -72,7 +120,7 @@ public class CalendarFunctionTests
     [Fact]
     public async Task Run_ReturnsNotFoundForMissingVriendschapCalendar()
     {
-        var response = await new CalendarFunction().Run(CreateRequest(), "2627", "vriendschap", "H2");
+        var response = await CreateFileBackedCalendarFunction().Run(CreateRequest(), "2627", "vriendschap", "H2");
 
         Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
     }
@@ -88,7 +136,7 @@ public class CalendarFunctionTests
         {
             File.Copy(source, Path.Combine(directory, "items.json"));
 
-            var response = await new CalendarFunction().Run(CreateRequest(), "2627", "vriendschap", competition);
+            var response = await CreateFileBackedCalendarFunction().Run(CreateRequest(), "2627", "vriendschap", competition);
 
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         }
@@ -101,7 +149,7 @@ public class CalendarFunctionTests
     [Fact]
     public async Task RunByTeam_FiltersCalendarInLeague()
     {
-        var response = await new CalendarFunction().RunByTeam(CreateRequest(), "2627", "vlm", "H2", "SPORA LEUVEN");
+        var response = await CreateFileBackedCalendarFunction().RunByTeam(CreateRequest(), "2627", "vlm", "H2", "SPORA LEUVEN");
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         response.Body.Position = 0;
@@ -118,7 +166,7 @@ public class CalendarFunctionTests
     [InlineData("D2A")]
     public async Task RunTeams_ReturnsUniqueSortedNamesFromCalendar(string competition)
     {
-        var function = new CalendarFunction();
+        var function = CreateFileBackedCalendarFunction();
         var calendarResponse = await function.Run(CreateRequest(), "2627", "vlm", competition);
         calendarResponse.Body.Position = 0;
         var games = await JsonSerializer.DeserializeAsync<List<CalendarGameDto>>(
@@ -126,7 +174,7 @@ public class CalendarFunctionTests
             new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
         Assert.NotNull(games);
 
-        var response = await new TeamsFunction().Run(CreateRequest(), "2627", "vlm", competition);
+        var response = await new TeamsFunction(new FileCalendarRepository()).Run(CreateRequest(), "2627", "vlm", competition);
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         response.Body.Position = 0;
@@ -146,7 +194,7 @@ public class CalendarFunctionTests
     [InlineData("2627", "vriendschap", "H2", HttpStatusCode.NotFound)]
     public async Task RunTeams_UsesCalendarValidation(string season, string league, string competition, HttpStatusCode expectedStatus)
     {
-        var response = await new TeamsFunction().Run(CreateRequest(), season, league, competition);
+        var response = await new TeamsFunction(new FileCalendarRepository()).Run(CreateRequest(), season, league, competition);
 
         Assert.Equal(expectedStatus, response.StatusCode);
     }
@@ -170,4 +218,7 @@ public class CalendarFunctionTests
         request.Setup(httpRequest => httpRequest.CreateResponse()).Returns(response.Object);
         return request.Object;
     }
+
+    private static CalendarFunction CreateFileBackedCalendarFunction() =>
+        new(new FileCalendarRepository());
 }
