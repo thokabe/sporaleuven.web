@@ -1,0 +1,126 @@
+{
+  "lastVerschenenOp": "29/09/2026",
+  "nietVerschenenWedstrijden": [],
+  "ranking": [
+    {
+      "clubID": 2081,
+      "clubNaam": "BETEKOM VBC",
+      "aw": 2,
+      "w3": 2,
+      "w2": 0,
+      "w1": 0,
+      "gs": 6,
+      "vs": 1,
+      "pu": 6,
+      "ff": 0
+    },
+    {
+      "clubID": 1736,
+      "clubNaam": "HERVOC HERENT",
+      "aw": 2,
+      "w3": 2,
+      "w2": 0,
+      "w1": 0,
+      "gs": 6,
+      "vs": 2,
+      "pu": 6,
+      "ff": 0
+    },
+    {
+      "clubID": 2147,
+      "clubNaam": "VOLLEY D BOUTERSEM",
+      "aw": 1,
+      "w3": 1,
+      "w2": 0,
+      "w1": 0,
+      "gs": 3,
+      "vs": 0,
+      "pu": 3,
+      "ff": 0
+    },
+    {
+      "clubID": 1949,
+      "clubNaam": "LADIES VHL Haasrode",
+      "aw": 1,
+      "w3": 0,
+      "w2": 1,
+      "w1": 0,
+      "gs": 3,
+      "vs": 2,
+      "pu": 2,
+      "ff": 0
+    },
+    {
+      "clubID": 1689,
+      "clubNaam": "SPORA LEUVEN DAMES",
+      "aw": 1,
+      "w3": 0,
+      "w2": 0,
+      "w1": 1,
+      "gs": 2,
+      "vs": 3,
+      "pu": 1,
+      "ff": 0
+    },
+    {
+      "clubID": 1813,
+      "clubNaam": "BERG-AF WIJGMAAL",
+      "aw": 2,
+      "w3": 0,
+      "w2": 0,
+      "w1": 0,
+      "gs": 2,
+      "vs": 6,
+      "pu": 0,
+      "ff": 0
+    },
+    {
+      "clubID": 1761,
+      "clubNaam": "KREG LD ROTSELAAR",
+      "aw": 2,
+      "w3": 0,
+      "w2": 0,
+      "w1": 0,
+      "gs": 1,
+      "vs": 6,
+      "pu": 0,
+      "ff": 0
+    },
+    {
+      "clubID": 1916,
+      "clubNaam": "Volleyskiteam D Betekom",
+      "aw": 1,
+      "w3": 0,
+      "w2": 0,
+      "w1": 0,
+      "gs": 0,
+      "vs": 3,
+      "pu": 0,
+      "ff": 0
+    },
+    {
+      "clubID": 1739,
+      "clubNaam": "AKUUT D HERENT VC",
+      "aw": 0,
+      "w3": 0,
+      "w2": 0,
+      "w1": 0,
+      "gs": 0,
+      "vs": 0,
+      "pu": 0,
+      "ff": 0
+    },
+    {
+      "clubID": 1817,
+      "clubNaam": "FENIKS D HAACHT",
+      "aw": 0,
+      "w3": 0,
+      "w2": 0,
+      "w1": 0,
+      "gs": 0,
+      "vs": 0,
+      "pu": 0,
+      "ff": 0
+    }
+  ]
+}

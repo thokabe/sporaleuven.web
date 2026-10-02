@@ -1,0 +1,126 @@
+{
+  "lastVerschenenOp": "29/09/2026",
+  "nietVerschenenWedstrijden": [],
+  "ranking": [
+    {
+      "clubID": 1812,
+      "clubNaam": "AARSCHOT BVS H",
+      "aw": 1,
+      "w3": 1,
+      "w2": 0,
+      "w1": 0,
+      "gs": 3,
+      "vs": 1,
+      "pu": 3,
+      "ff": 0
+    },
+    {
+      "clubID": 1737,
+      "clubNaam": "AKUUT H HERENT VC",
+      "aw": 1,
+      "w3": 1,
+      "w2": 0,
+      "w1": 0,
+      "gs": 3,
+      "vs": 1,
+      "pu": 3,
+      "ff": 0
+    },
+    {
+      "clubID": 1540,
+      "clubNaam": "VIP ERPS KWERPS",
+      "aw": 1,
+      "w3": 1,
+      "w2": 0,
+      "w1": 0,
+      "gs": 3,
+      "vs": 0,
+      "pu": 3,
+      "ff": 0
+    },
+    {
+      "clubID": 1758,
+      "clubNaam": "GRIVOK H GRIMBERGEN",
+      "aw": 1,
+      "w3": 1,
+      "w2": 0,
+      "w1": 0,
+      "gs": 3,
+      "vs": 0,
+      "pu": 3,
+      "ff": 0
+    },
+    {
+      "clubID": 1759,
+      "clubNaam": "MOLENSTEDE VC",
+      "aw": 1,
+      "w3": 1,
+      "w2": 0,
+      "w1": 0,
+      "gs": 3,
+      "vs": 0,
+      "pu": 3,
+      "ff": 0
+    },
+    {
+      "clubID": 1663,
+      "clubNaam": "SPORA LEUVEN H I",
+      "aw": 1,
+      "w3": 0,
+      "w2": 0,
+      "w1": 0,
+      "gs": 1,
+      "vs": 3,
+      "pu": 0,
+      "ff": 0
+    },
+    {
+      "clubID": 1575,
+      "clubNaam": "VLIERVOC LEUVEN",
+      "aw": 2,
+      "w3": 0,
+      "w2": 0,
+      "w1": 0,
+      "gs": 1,
+      "vs": 6,
+      "pu": 0,
+      "ff": 0
+    },
+    {
+      "clubID": 1703,
+      "clubNaam": "SUIKERVOC 2.0 TIENEN",
+      "aw": 0,
+      "w3": 0,
+      "w2": 0,
+      "w1": 0,
+      "gs": 0,
+      "vs": 0,
+      "pu": 0,
+      "ff": 0
+    },
+    {
+      "clubID": 1778,
+      "clubNaam": "STERKO KORTENBERG",
+      "aw": 1,
+      "w3": 0,
+      "w2": 0,
+      "w1": 0,
+      "gs": 0,
+      "vs": 3,
+      "pu": 0,
+      "ff": 0
+    },
+    {
+      "clubID": 1757,
+      "clubNaam": "DE SOLVELDERS 1 TIELT-W.",
+      "aw": 1,
+      "w3": 0,
+      "w2": 0,
+      "w1": 0,
+      "gs": 0,
+      "vs": 3,
+      "pu": 0,
+      "ff": 0
+    }
+  ]
+}
