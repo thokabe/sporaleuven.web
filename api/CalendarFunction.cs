@@ -1,5 +1,4 @@
 using System.Net;
-using System.Text.Json;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
@@ -9,7 +8,12 @@ namespace Api;
 
 public class CalendarFunction
 {
-    private static readonly HashSet<string> ExcludedTeamNames = new(StringComparer.OrdinalIgnoreCase) { "A", "B" };
+    private readonly ICalendarRepository _calendarRepository;
+
+    public CalendarFunction(ICalendarRepository calendarRepository)
+    {
+        _calendarRepository = calendarRepository;
+    }
 
     [Function("calendar")]
     [OpenApiOperation("getCalendar", "Calendar", Summary = "Get games for a competition")]
@@ -25,7 +29,7 @@ public class CalendarFunction
         string league,
         string competition)
     {
-        if (!TryGetCalendarPath(season, league, competition, out var calendarPath))
+        if (!IsValidCalendarRequest(season, league, competition))
         {
             return await CreateErrorResponseAsync(
                 req,
@@ -33,13 +37,14 @@ public class CalendarFunction
                 "Season must contain four digits, league must be vlm or vriendschap, and competition must be an alphanumeric code.");
         }
 
-        if (!File.Exists(calendarPath))
+        var games = await _calendarRepository.GetCalendarAsync(season, league, competition);
+        if (games is null)
         {
             return await CreateErrorResponseAsync(req, HttpStatusCode.NotFound, "Calendar not found.");
         }
 
         var response = req.CreateResponse(HttpStatusCode.OK);
-        await response.WriteAsJsonAsync(await LoadGamesAsync(calendarPath));
+        await response.WriteAsJsonAsync(games);
         return response;
     }
 
@@ -59,7 +64,7 @@ public class CalendarFunction
         string competition,
         string teamName)
     {
-        if (!TryGetCalendarPath(season, league, competition, out var calendarPath))
+        if (!IsValidCalendarRequest(season, league, competition))
         {
             return await CreateErrorResponseAsync(
                 req,
@@ -67,12 +72,13 @@ public class CalendarFunction
                 "Season must contain four digits, league must be vlm or vriendschap, and competition must be an alphanumeric code.");
         }
 
-        if (!File.Exists(calendarPath))
+        var calendar = await _calendarRepository.GetCalendarAsync(season, league, competition);
+        if (calendar is null)
         {
             return await CreateErrorResponseAsync(req, HttpStatusCode.NotFound, "Calendar not found.");
         }
 
-        var games = (await LoadGamesAsync(calendarPath))
+        var games = calendar
             .Where(g => g.TeamHome.Contains(teamName, StringComparison.OrdinalIgnoreCase)
                      || g.TeamAway.Contains(teamName, StringComparison.OrdinalIgnoreCase))
             .ToList();
@@ -82,18 +88,10 @@ public class CalendarFunction
         return response;
     }
 
-    internal static bool TryGetCalendarPath(string season, string league, string competition, out string calendarPath)
-    {
-        var isValidSeason = season.Length == 4 && season.All(char.IsAsciiDigit);
-        var isValidLeague = league is "vlm" or "vriendschap";
-        var isValidCompetition = competition.Length > 0 && competition.All(char.IsAsciiLetterOrDigit);
-
-        calendarPath = isValidSeason && isValidLeague && isValidCompetition
-            ? Path.Combine(AppContext.BaseDirectory, "data", "calendar", season, league, competition, "items.json")
-            : string.Empty;
-
-        return isValidSeason && isValidLeague && isValidCompetition;
-    }
+    internal static bool IsValidCalendarRequest(string season, string league, string competition) =>
+        season.Length == 4 && season.All(char.IsAsciiDigit)
+        && league is "vlm" or "vriendschap"
+        && competition.Length > 0 && competition.All(char.IsAsciiLetterOrDigit);
 
     internal static async Task<HttpResponseData> CreateErrorResponseAsync(
         HttpRequestData request,
@@ -103,14 +101,5 @@ public class CalendarFunction
         var response = request.CreateResponse(statusCode);
         await response.WriteAsJsonAsync(new CalendarErrorDto(message));
         return response;
-    }
-
-    internal static async Task<List<CalendarGameDto>> LoadGamesAsync(string calendarPath)
-    {
-        await using var stream = File.OpenRead(calendarPath);
-        var weeks = await JsonSerializer.DeserializeAsync<List<CalendarWeek>>(stream) ?? [];
-        return CalendarMapper.ToDtos(weeks)
-            .Where(game => !ExcludedTeamNames.Contains(game.TeamHome) && !ExcludedTeamNames.Contains(game.TeamAway))
-            .ToList();
     }
 }
