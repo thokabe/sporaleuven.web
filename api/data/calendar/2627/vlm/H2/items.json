@@ -157,7 +157,15 @@
         "thuisPloegClub": "VIP ERPS KWERPS",
         "thuisPloegClubStamNummer": "0218",
         "bezoekersPloegClub": "SPORA LEUVEN H I",
-        "bezoekersPloegClubStamNummer": "0539"
+        "bezoekersPloegClubStamNummer": "0539",
+        "uitslag": "3-2",
+        "set1": "18-25",
+        "set2": "23-25",
+        "set3": "25-15",
+        "set4": "25-16",
+        "set5": "15-13",
+        "puntenThuisPloeg": 2,
+        "puntenBezoekersPloeg": 1
       }
     ]
   },
@@ -192,7 +200,13 @@
         "thuisPloegClub": "SUIKERVOC 2.0 TIENEN",
         "thuisPloegClubStamNummer": "0635",
         "bezoekersPloegClub": "GRIVOK H GRIMBERGEN",
-        "bezoekersPloegClubStamNummer": "0678"
+        "bezoekersPloegClubStamNummer": "0678",
+        "uitslag": "0-3",
+        "set1": "24-26",
+        "set2": "12-25",
+        "set3": "17-25",
+        "puntenThuisPloeg": 0,
+        "puntenBezoekersPloeg": 3
       },
       {
         "wedstrijdNummer": 16,
@@ -215,14 +229,14 @@
         "bezoekersPloegClubStamNummer": "0676"
       },
       {
-        "wedstrijdNummer": 24,
+        "wedstrijdNummer": 20,
         "datum": "05/10/2026",
-        "uur": "20:30",
-        "zaalBeschikbaarVanafUur": "20:00",
-        "thuisPloegClub": "MOLENSTEDE VC",
-        "thuisPloegClubStamNummer": "0676",
-        "bezoekersPloegClub": "B",
-        "bezoekersPloegClubStamNummer": "9002"
+        "uur": "00:00",
+        "zaalBeschikbaarVanafUur": "00:00",
+        "thuisPloegClub": "A",
+        "thuisPloegClubStamNummer": "9001",
+        "bezoekersPloegClub": "STERKO KORTENBERG",
+        "bezoekersPloegClubStamNummer": "0693"
       }
     ]
   },
@@ -238,16 +252,6 @@
         "thuisPloegClubStamNummer": "0675",
         "bezoekersPloegClub": "AARSCHOT BVS H",
         "bezoekersPloegClubStamNummer": "0694"
-      },
-      {
-        "wedstrijdNummer": 20,
-        "datum": "05/10/2026",
-        "uur": "00:00",
-        "zaalBeschikbaarVanafUur": "00:00",
-        "thuisPloegClub": "A",
-        "thuisPloegClubStamNummer": "9001",
-        "bezoekersPloegClub": "STERKO KORTENBERG",
-        "bezoekersPloegClubStamNummer": "0693"
       },
       {
         "wedstrijdNummer": 21,
@@ -278,6 +282,16 @@
         "thuisPloegClubStamNummer": "0539",
         "bezoekersPloegClub": "VLIERVOC LEUVEN",
         "bezoekersPloegClubStamNummer": "0156"
+      },
+      {
+        "wedstrijdNummer": 24,
+        "datum": "05/10/2026",
+        "uur": "20:30",
+        "zaalBeschikbaarVanafUur": "20:00",
+        "thuisPloegClub": "MOLENSTEDE VC",
+        "thuisPloegClubStamNummer": "0676",
+        "bezoekersPloegClub": "B",
+        "bezoekersPloegClubStamNummer": "9002"
       },
       {
         "wedstrijdNummer": 30,
