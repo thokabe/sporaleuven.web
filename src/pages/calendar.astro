@@ -106,7 +106,8 @@ const formatDatum = (date: Date) =>
       <table data-competition-table class="hidden w-full text-left text-sm">
         <thead class="bg-slate-100 text-xs uppercase text-slate-500">
           <tr>
-            <th class="px-4 py-3">Datum</th>
+            <th class="w-px whitespace-nowrap py-3 pl-4 pr-2">Dag</th>
+            <th class="px-4 py-3 text-right">Datum</th>
             <th class="px-4 py-3">Uur</th>
             <th class="px-4 py-3">Thuisploeg</th>
             <th class="px-4 py-3">Bezoekers</th>
@@ -154,8 +155,10 @@ const formatDatum = (date: Date) =>
       for (const game of filteredGames) {
         const row = document.createElement('tr');
         row.className = 'border-t border-slate-100';
+        const [dayOfWeek, ...dateParts] = game.DateWithDayOfWeek.split(' ');
         const values = [
-          game.DateWithDayOfWeek,
+          dayOfWeek,
+          dateParts.join(' '),
           timeFormatter.format(new Date(game.DateTime)),
           game.TeamHome,
           game.TeamAway,
@@ -163,7 +166,7 @@ const formatDatum = (date: Date) =>
         ];
         values.forEach((value, index) => {
           const cell = document.createElement('td');
-          cell.className = `px-4 py-3${index === 0 ? ' whitespace-nowrap' : ''}${index === 2 ? ' font-medium text-slate-900' : ''}`;
+          cell.className = `py-3${index === 0 ? ' w-px whitespace-nowrap pl-4 pr-2' : ' px-4'}${index === 1 ? ' whitespace-nowrap text-right' : ''}${index === 3 ? ' font-medium text-slate-900' : ''}`;
           cell.textContent = value;
           row.append(cell);
         });
