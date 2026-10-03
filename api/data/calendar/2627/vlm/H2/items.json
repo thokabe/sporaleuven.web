@@ -110,7 +110,14 @@
         "thuisPloegClub": "DE SOLVELDERS 1 TIELT-W.",
         "thuisPloegClubStamNummer": "0675",
         "bezoekersPloegClub": "SUIKERVOC 2.0 TIENEN",
-        "bezoekersPloegClubStamNummer": "0635"
+        "bezoekersPloegClubStamNummer": "0635",
+        "uitslag": "1-3",
+        "set1": "19-25",
+        "set2": "25-21",
+        "set3": "15-25",
+        "set4": "15-25",
+        "puntenThuisPloeg": 0,
+        "puntenBezoekersPloeg": 3
       },
       {
         "wedstrijdNummer": 11,
