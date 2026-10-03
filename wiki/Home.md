@@ -37,6 +37,18 @@ flowchart LR
 
 This makes Astro the CMS engine: content lives in the repository, schemas define the allowed structure, and pages compile the validated content into a static site.
 
+## API
+
+A .NET 8 isolated Azure Functions app in `api/` is deployed as the Static Web App's managed API. The runtime is declared in `public/staticwebapp.config.json` (`platform.apiRuntime`).
+
+| Endpoint | Method | Response |
+| --- | --- | --- |
+| `/api/hello` | GET | Plain-text greeting |
+
+Local development requires the .NET 8 SDK and Azure Functions Core Tools v4. Run `npm run dev:swa` and browse to `http://localhost:4280` (the SWA emulator proxies `/api/*` to the Functions host).
+
+In CI, `release.yml` publishes the API to `spora-leuven-api.zip` next to the site zip, and `deploy_release.yml` deploys it with `skip_api_build: true`.
+
 ## Hosting infrastructure
 
 Infrastructure is declared with Bicep in `iac/` and split into:

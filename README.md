@@ -15,6 +15,12 @@ All commands are run from the repository root:
 | `npm run build` | Build the production site into `dist/`  |
 | `npm run preview` | Preview the production build locally  |
 
+## Local calendar API
+
+The calendar page requests `/api/calendar/2627/vlm/H2`. For local development before the updated API is deployed, install the .NET 8 runtime and Azure Functions Core Tools, start the API from `api/` with `func start`, then set `API_PROXY_TARGET=http://localhost:7071` before starting Astro. The dev server proxies `/api` to that address, keeping browser requests same-origin. Without this setting it proxies to `https://sporaleuven.be`, which will return 404 for the new league route until deployment.
+
+`GET /api/teams/{season}/{league}/{competition}` returns an alphabetically sorted array of distinct home and away team names from the matching calendar, for example `/api/teams/2627/vlm/H2`.
+
 ## Visitor analytics
 
 This site uses a centralized [Umami](https://umami.is/) script include in `/src/components/Analytics.astro`, which is mounted once from `/src/layouts/BaseLayout.astro` so every page is tracked consistently.
