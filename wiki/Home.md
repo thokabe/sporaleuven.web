@@ -44,6 +44,9 @@ A .NET 8 isolated Azure Functions app in `api/` is deployed as the Static Web Ap
 | Endpoint | Method | Response |
 | --- | --- | --- |
 | `/api/hello` | GET | Plain-text greeting |
+| `/api/calendar/{season}/{league}/{competition}` | GET | Calendar games |
+| `/api/teams/{season}/{league}/{competition}` | GET | Sorted distinct team names |
+| `/api/ranking/{season}/{league}/{competition}` | GET | Overall competition ranking |
 
 Local development requires the .NET 8 SDK and Azure Functions Core Tools v4. Run `npm run dev:swa` and browse to `http://localhost:4280` (the SWA emulator proxies `/api/*` to the Functions host).
 

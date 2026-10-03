@@ -6,6 +6,8 @@ using Microsoft.Extensions.Hosting;
 new HostBuilder()
 	.ConfigureFunctionsWorkerDefaults()
 	.ConfigureOpenApi()
-	.ConfigureServices(services => services.AddSingleton<ICalendarRepository, FileCalendarRepository>())
+	.ConfigureServices(services => services
+		.AddSingleton<ICalendarRepository, FileCalendarRepository>()
+		.AddSingleton<IRankingRepository, FileRankingRepository>())
 	.Build()
 	.Run();
