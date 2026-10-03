@@ -95,6 +95,27 @@ const formatDatum = (date: Date) =>
   ))}
   {competitionTabs.map((competition) => (
     <div data-tab-panel={competition.id} data-competition-path={competition.path} class:list={['mt-4 overflow-x-auto rounded-lg border border-slate-200 bg-white shadow-sm', { hidden: selectedTeamId !== competition.id }]}>
+      <section aria-labelledby={`${competition.id}-ranking-heading`} class="border-b border-slate-200">
+        <h2 id={`${competition.id}-ranking-heading`} class="px-4 pt-4 text-lg font-semibold text-slate-900">Rangschikking</h2>
+        <p data-ranking-status role="status" class="px-4 py-3 text-sm text-slate-600">Rangschikking laden...</p>
+        <table data-ranking-table class="hidden w-full text-left text-sm">
+          <thead class="bg-slate-100 text-xs uppercase text-slate-500">
+            <tr>
+              <th class="px-4 py-3">#</th>
+              <th class="px-4 py-3">Ploeg</th>
+              <th class="px-4 py-3">Wedstrijden</th>
+              <th class="px-4 py-3">W3</th>
+              <th class="px-4 py-3">W2</th>
+              <th class="px-4 py-3">W1</th>
+              <th class="px-4 py-3">Sets voor</th>
+              <th class="px-4 py-3">Sets tegen</th>
+              <th class="px-4 py-3">Punten</th>
+              <th class="px-4 py-3">Forfaits</th>
+            </tr>
+          </thead>
+          <tbody data-ranking-rows></tbody>
+        </table>
+      </section>
       <div class="border-b border-slate-200 px-4 py-3">
         <label for={`${competition.id}-team`} class="block text-sm font-medium text-slate-900">Ploeg</label>
         <select id={`${competition.id}-team`} data-competition-team disabled class="mt-1 w-full max-w-sm rounded border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:border-orange-600 focus:outline-none disabled:opacity-50">
@@ -146,6 +167,8 @@ const formatDatum = (date: Date) =>
     let games: CalendarGame[] = [];
     let calendarLoaded = false;
     let calendarLoading = false;
+    let rankingLoaded = false;
+    let rankingLoading = false;
     let teamsLoaded = false;
     let teamsLoading = false;
     const renderCalendar = () => {
@@ -225,6 +248,7 @@ const formatDatum = (date: Date) =>
 
     teamSelect.addEventListener('change', renderCalendar);
     competitionLoaders.set(panel.dataset.tabPanel!, () => {
+      void loadRanking();
       void loadCalendar();
       void loadTeams();
     });
