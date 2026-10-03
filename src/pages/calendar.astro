@@ -95,6 +95,27 @@ const formatDatum = (date: Date) =>
   ))}
   {competitionTabs.map((competition) => (
     <div data-tab-panel={competition.id} data-competition-path={competition.path} class:list={['mt-4 overflow-x-auto rounded-lg border border-slate-200 bg-white shadow-sm', { hidden: selectedTeamId !== competition.id }]}>
+      <section aria-labelledby={`${competition.id}-ranking-heading`} class="border-b border-slate-200">
+        <h2 id={`${competition.id}-ranking-heading`} class="px-4 pt-4 text-lg font-semibold text-slate-900">Rangschikking</h2>
+        <p data-ranking-status role="status" class="px-4 py-3 text-sm text-slate-600">Rangschikking laden...</p>
+        <table data-ranking-table class="hidden w-full text-left text-sm">
+          <thead class="bg-slate-100 text-xs uppercase text-slate-500">
+            <tr>
+              <th class="px-4 py-3">#</th>
+              <th class="px-4 py-3">Ploeg</th>
+              <th class="px-4 py-3">Wedstrijden</th>
+              <th class="px-4 py-3">W3</th>
+              <th class="px-4 py-3">W2</th>
+              <th class="px-4 py-3">W1</th>
+              <th class="px-4 py-3">Sets voor</th>
+              <th class="px-4 py-3">Sets tegen</th>
+              <th class="px-4 py-3">Punten</th>
+              <th class="px-4 py-3">Forfaits</th>
+            </tr>
+          </thead>
+          <tbody data-ranking-rows></tbody>
+        </table>
+      </section>
       <div class="border-b border-slate-200 px-4 py-3">
         <label for={`${competition.id}-team`} class="block text-sm font-medium text-slate-900">Ploeg</label>
         <select id={`${competition.id}-team`} data-competition-team disabled class="mt-1 w-full max-w-sm rounded border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:border-orange-600 focus:outline-none disabled:opacity-50">
@@ -182,10 +203,45 @@ const formatDatum = (date: Date) =>
     let games: CalendarGame[] = [];
     let calendarLoaded = false;
     let calendarLoading = false;
+    let rankingLoaded = false;
+    let rankingLoading = false;
     let teamsLoaded = false;
     let teamsLoading = false;
     let rankingLoaded = false;
     let rankingLoading = false;
+
+    const loadRanking = async () => {
+      if (rankingLoaded || rankingLoading) return;
+      rankingLoading = true;
+
+      try {
+        const response = await fetch(`/api/ranking${calendarPath}`);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const ranking: RankingTeam[] = await response.json();
+        rankingBody.replaceChildren();
+        ranking.forEach((team, index) => {
+          const row = document.createElement('tr');
+          row.className = 'border-t border-slate-100';
+          const values = [String(index + 1), team.clubNaam, String(team.aw), String(team.w3), String(team.w2), String(team.w1), String(team.gs), String(team.vs), String(team.pu), String(team.ff)];
+          values.forEach((value, cellIndex) => {
+            const cell = document.createElement('td');
+            cell.className = `px-4 py-3${cellIndex === 1 ? ' whitespace-nowrap font-medium text-slate-900' : ''}`;
+            cell.textContent = value;
+            row.append(cell);
+          });
+          rankingBody.append(row);
+        });
+
+        rankingLoaded = true;
+        rankingTable.classList.toggle('hidden', ranking.length === 0);
+        rankingStatus.textContent = ranking.length === 0 ? 'Geen rangschikking gevonden.' : '';
+        rankingStatus.classList.toggle('hidden', ranking.length > 0);
+      } catch {
+        rankingStatus.textContent = 'De rangschikking kon niet worden geladen. Open dit tabblad opnieuw om het nog eens te proberen.';
+      } finally {
+        rankingLoading = false;
+      }
+    };
 
     const renderCalendar = () => {
       body.replaceChildren();
@@ -310,6 +366,7 @@ const formatDatum = (date: Date) =>
 
     teamSelect.addEventListener('change', renderCalendar);
     competitionLoaders.set(panel.dataset.tabPanel!, () => {
+      void loadRanking();
       void loadCalendar();
       void loadTeams();
       void loadRanking();
