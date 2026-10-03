@@ -137,26 +137,6 @@ const formatDatum = (date: Date) =>
         </thead>
         <tbody data-competition-rows></tbody>
       </table>
-      <section class="mt-6 border-t border-slate-200 pt-4">
-        <h2 class="px-4 text-lg font-semibold text-slate-900">Rangschikking</h2>
-        <p data-ranking-status role="status" class="px-4 py-3 text-sm text-slate-600">Rangschikking laden...</p>
-        <table data-ranking-table class="hidden w-full min-w-[44rem] text-left text-sm">
-          <thead class="bg-slate-100 text-xs uppercase text-slate-500">
-            <tr>
-              <th class="px-4 py-3 text-right">#</th>
-              <th class="px-4 py-3">Ploeg</th>
-              <th class="px-4 py-3 text-right">Gespeeld</th>
-              <th class="px-4 py-3 text-right">3 ptn</th>
-              <th class="px-4 py-3 text-right">2 ptn</th>
-              <th class="px-4 py-3 text-right">1 pt</th>
-              <th class="px-4 py-3 text-right">Sets</th>
-              <th class="px-4 py-3 text-right">Punten</th>
-              <th class="px-4 py-3 text-right">FF</th>
-            </tr>
-          </thead>
-          <tbody data-ranking-rows></tbody>
-        </table>
-      </section>
     </div>
   ))}
 </BaseLayout>
@@ -207,8 +187,6 @@ const formatDatum = (date: Date) =>
     let rankingLoading = false;
     let teamsLoaded = false;
     let teamsLoading = false;
-    let rankingLoaded = false;
-    let rankingLoading = false;
 
     const loadRanking = async () => {
       if (rankingLoaded || rankingLoading) return;
@@ -318,58 +296,11 @@ const formatDatum = (date: Date) =>
       }
     };
 
-    const loadRanking = async () => {
-      if (rankingLoaded || rankingLoading) return;
-      rankingLoading = true;
-      rankingStatus.textContent = 'Rangschikking laden...';
-      rankingStatus.classList.remove('hidden');
-
-      try {
-        const response = await fetch(`/api/ranking${calendarPath}`);
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        const ranking: RankingTeam[] = await response.json();
-        rankingBody.replaceChildren();
-
-        ranking.forEach((team, index) => {
-          const row = document.createElement('tr');
-          row.className = 'border-t border-slate-100';
-          const values = [
-            String(index + 1),
-            team.clubNaam,
-            String(team.aw),
-            String(team.w3),
-            String(team.w2),
-            String(team.w1),
-            `${team.gs}-${team.vs}`,
-            String(team.pu),
-            String(team.ff),
-          ];
-          values.forEach((value, columnIndex) => {
-            const cell = document.createElement('td');
-            cell.className = `whitespace-nowrap px-4 py-3${columnIndex === 1 ? ' font-medium text-slate-900' : ' text-right'}`;
-            cell.textContent = value;
-            row.append(cell);
-          });
-          rankingBody.append(row);
-        });
-
-        rankingLoaded = true;
-        rankingTable.classList.toggle('hidden', ranking.length === 0);
-        rankingStatus.textContent = ranking.length === 0 ? 'Geen rangschikking beschikbaar.' : '';
-        rankingStatus.classList.toggle('hidden', ranking.length > 0);
-      } catch {
-        rankingStatus.textContent = 'De rangschikking kon niet worden geladen. Open dit tabblad opnieuw om het nog eens te proberen.';
-      } finally {
-        rankingLoading = false;
-      }
-    };
-
     teamSelect.addEventListener('change', renderCalendar);
     competitionLoaders.set(panel.dataset.tabPanel!, () => {
       void loadRanking();
       void loadCalendar();
       void loadTeams();
-      void loadRanking();
     });
   });
 
