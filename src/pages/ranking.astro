@@ -1,0 +1,155 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const competitions = [
+  { id: 'h2', name: 'Heren 1', path: '/2627/vlm/H2' },
+  { id: 'd2a', name: 'Dames 1', path: '/2627/vlm/D2A' },
+];
+---
+
+<BaseLayout title="Rangschikking">
+  <h1 class="text-3xl font-bold text-slate-900">Rangschikking</h1>
+
+  <div class="mt-6 flex flex-wrap gap-2 border-b border-slate-200">
+    {competitions.map((competition, index) => (
+      <button
+        type="button"
+        data-ranking-tab={competition.id}
+        class:list={[
+          'ranking-tab cursor-pointer border-b-2 px-4 py-2 text-sm font-medium transition-colors',
+          index === 0 ? 'border-orange-600 text-orange-600' : 'border-transparent text-slate-600 hover:text-orange-600',
+        ]}
+      >
+        {competition.name}
+      </button>
+    ))}
+  </div>
+
+  {competitions.map((competition, index) => (
+    <div
+      data-ranking-panel={competition.id}
+      data-ranking-path={competition.path}
+      class:list={[
+        'mt-4 overflow-x-auto rounded-lg border border-slate-200 bg-white shadow-sm',
+        { hidden: index !== 0 },
+      ]}
+    >
+      <p data-ranking-status role="status" class="px-4 py-3 text-sm text-slate-600">Rangschikking laden...</p>
+      <table data-ranking-table class="hidden w-full min-w-[44rem] text-left text-sm">
+        <thead class="bg-slate-100 text-xs uppercase text-slate-500">
+          <tr>
+            <th class="px-4 py-3 text-right">#</th>
+            <th class="px-4 py-3">Ploeg</th>
+            <th class="px-4 py-3 text-right">Gespeeld</th>
+            <th class="px-4 py-3 text-right">3 ptn</th>
+            <th class="px-4 py-3 text-right">2 ptn</th>
+            <th class="px-4 py-3 text-right">1 pt</th>
+            <th class="px-4 py-3 text-right">Sets</th>
+            <th class="px-4 py-3 text-right">Punten</th>
+            <th class="px-4 py-3 text-right">FF</th>
+          </tr>
+        </thead>
+        <tbody data-ranking-rows></tbody>
+      </table>
+    </div>
+  ))}
+</BaseLayout>
+
+<script>
+  type RankingTeam = {
+    clubID: number;
+    clubNaam: string;
+    aw: number;
+    w3: number;
+    w2: number;
+    w1: number;
+    gs: number;
+    vs: number;
+    pu: number;
+    ff: number;
+  };
+
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.ranking-tab');
+  const panels = document.querySelectorAll<HTMLElement>('[data-ranking-panel]');
+  const loaders = new Map<string, () => void>();
+
+  panels.forEach((panel) => {
+    const competitionPath = panel.dataset.rankingPath!;
+    const status = panel.querySelector<HTMLElement>('[data-ranking-status]')!;
+    const table = panel.querySelector<HTMLTableElement>('[data-ranking-table]')!;
+    const body = panel.querySelector<HTMLTableSectionElement>('[data-ranking-rows]')!;
+    let loaded = false;
+    let loading = false;
+
+    loaders.set(panel.dataset.rankingPanel!, async () => {
+      if (loaded || loading) return;
+      loading = true;
+      status.textContent = 'Rangschikking laden...';
+      status.classList.remove('hidden');
+
+      try {
+        const response = await fetch(`/api/ranking${competitionPath}`);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const ranking: RankingTeam[] = await response.json();
+        body.replaceChildren();
+
+        ranking.forEach((team, index) => {
+          const row = document.createElement('tr');
+          row.className = 'border-t border-slate-100';
+          const values = [
+            String(index + 1),
+            team.clubNaam,
+            String(team.aw),
+            String(team.w3),
+            String(team.w2),
+            String(team.w1),
+            `${team.gs}-${team.vs}`,
+            String(team.pu),
+            String(team.ff),
+          ];
+          values.forEach((value, columnIndex) => {
+            const cell = document.createElement('td');
+            cell.className = `whitespace-nowrap px-4 py-3${columnIndex === 1 ? ' font-medium text-slate-900' : ' text-right'}`;
+            cell.textContent = value;
+            row.append(cell);
+          });
+          body.append(row);
+        });
+
+        loaded = true;
+        table.classList.toggle('hidden', ranking.length === 0);
+        status.textContent = ranking.length === 0 ? 'Geen rangschikking beschikbaar.' : '';
+        status.classList.toggle('hidden', ranking.length > 0);
+      } catch {
+        status.textContent = 'De rangschikking kon niet worden geladen. Open dit tabblad opnieuw om het nog eens te proberen.';
+      } finally {
+        loading = false;
+      }
+    });
+  });
+
+  const activateTab = (target: string) => {
+    const activeButton = Array.from(buttons).find((button) => button.dataset.rankingTab === target);
+    if (!activeButton) return;
+
+    buttons.forEach((button) => {
+      const isActive = button === activeButton;
+      button.classList.toggle('border-orange-600', isActive);
+      button.classList.toggle('text-orange-600', isActive);
+      button.classList.toggle('border-transparent', !isActive);
+      button.classList.toggle('text-slate-600', !isActive);
+    });
+    panels.forEach((panel) => {
+      panel.classList.toggle('hidden', panel.dataset.rankingPanel !== target);
+    });
+    loaders.get(target)?.();
+  };
+
+  activateTab('h2');
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const target = button.dataset.rankingTab;
+      if (target) activateTab(target);
+    });
+  });
+</script>
